@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -12,6 +14,7 @@ public class PlayerController : MonoBehaviour
 
     private CharacterController controller;
     public Transform cam;
+    public Animator animator;
 
     private Vector3 velocity;
     private float smoothTurnVelocity;
@@ -22,6 +25,7 @@ public class PlayerController : MonoBehaviour
     {
         cam = Camera.main.transform;
         controller = GetComponent<CharacterController>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -44,6 +48,7 @@ public class PlayerController : MonoBehaviour
         else
             velocity.y -= gravity * Time.deltaTime;
 
+        if (velocity.z >= 0.1f || velocity.z <= -0.1f) animator.SetBool("Walking", true);
         controller.Move(velocity);
     }
 
