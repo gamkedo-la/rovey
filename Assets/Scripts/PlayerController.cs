@@ -13,14 +13,17 @@ public class PlayerController : MonoBehaviour
     public float jumpStrength = 1f;
 
     private CharacterController controller;
+
     public Transform cam;
     public Animator animator;
+    public float forwardWalkCycleSpeed = 1.0f;
+    public float backwardWalkCycleSpeed = -0.6f;
 
     private Vector3 velocity;
     private float smoothTurnVelocity;
 
 
-    // Start is called before the first frame update
+    // Start is called before the first frame update.
     void Start()
     {
         cam = Camera.main.transform;
@@ -28,7 +31,7 @@ public class PlayerController : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
     }
 
-    // Update is called once per frame
+    // Update is called once per frame.
     void FixedUpdate()
     {
         var horizontal = Input.GetAxisRaw("Horizontal");
@@ -36,6 +39,16 @@ public class PlayerController : MonoBehaviour
 
         var forward = Input.GetAxisRaw("Vertical");
         var inputDirection = new Vector3(0f, 0f, forward).normalized;
+
+        // Change speed depending on forward/backward.
+        if (forward > 0)
+        {
+            inputDirection.z = forwardWalkCycleSpeed;
+        }
+        else if (forward < 0)
+        {
+            inputDirection.z = backwardWalkCycleSpeed;
+        }
         var transformDirection = transform.TransformDirection(inputDirection);
 
         var flatMovement = speed * Time.deltaTime * transformDirection;
@@ -48,7 +61,12 @@ public class PlayerController : MonoBehaviour
         else
             velocity.y -= gravity * Time.deltaTime;
 
-        if (velocity.z >= 0.1f || velocity.z <= -0.1f) animator.SetBool("Walking", true);
+        // Update animator params.
+        var isWalking = inputDirection.z >= 0.1f || inputDirection.z <= -0.1;
+        var isBackwards = inputDirection.z <= -0.1f;
+        animator.SetBool("Walking", isWalking);
+        animator.SetFloat("WalkSpeed", isBackwards ? backwardWalkCycleSpeed : forwardWalkCycleSpeed);
+
         controller.Move(velocity);
     }
 
