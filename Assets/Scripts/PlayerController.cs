@@ -20,7 +20,10 @@ public class PlayerController : MonoBehaviour
     private Vector3 velocity;
     private float turnSmoothVelocity;
     public float turnSmoothTime = 0.1f;
+    public bool onGround = false;
 
+    // FSM Variables
+    private bool startJump;
 
     // Start is called before the first frame update.
     void Start()
@@ -54,17 +57,28 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Walking", false);
         }
 
-        // Account for jumping.
-        if (PlayerJumped)
+
+        animator.SetBool("OnGround", controller.isGrounded);
+        animator.SetBool("JumpButton", Input.GetButton("Jump"));
+
+        var fallAmount = controller.isGrounded ? -0.1f : -gravity * Time.deltaTime;
+        velocity.y += fallAmount;
+
+        if (startJump)
+        {
+            startJump = false;
             velocity.y = jumpStrength;
-        else if (controller.isGrounded)
-            velocity.y = 0f;
-        else
-            velocity.y -= gravity * Time.deltaTime;
+        }
 
         // Apply movement to character controller.
         controller.Move(velocity);
     }
 
-    private bool PlayerJumped => controller.isGrounded && Input.GetAxisRaw("Jump") >= 0.1f;
+    public void StartJump()
+    {
+        startJump = true;
+    }
+
+    private bool PlayerJumped => controller.isGrounded && !animator.GetBool("Jumping") && Input.GetAxisRaw("Jump") >= 0.1f;
+
 }
