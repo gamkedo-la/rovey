@@ -16,11 +16,10 @@ public class PlayerController : MonoBehaviour
 
     public Transform cam;
     public Animator animator;
-    public float forwardWalkCycleSpeed = 1.0f;
-    public float backwardWalkCycleSpeed = -0.6f;
 
     private Vector3 velocity;
-    private float smoothTurnVelocity;
+    private float turnSmoothVelocity;
+    public float turnSmoothTime = 0.1f;
 
 
     // Start is called before the first frame update.
@@ -35,25 +34,27 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         var horizontal = Input.GetAxisRaw("Horizontal");
-        transform.Rotate(transform.up, horizontal * turnSpeed * Time.deltaTime);
-
         var forward = Input.GetAxisRaw("Vertical");
-        var inputDirection = new Vector3(0f, 0f, forward).normalized;
+        var direction = new Vector3(horizontal, 0f, forward).normalized;
+        velocity = new Vector3(0f, velocity.y, 0f);
 
-        // Change speed depending on forward/backward.
-        if (forward > 0)
+        // Calculate movement direction.
+        if (direction.sqrMagnitude >= 0.1f)
         {
-            inputDirection.z = forwardWalkCycleSpeed;
+            animator.SetBool("Walking", true);
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity,
+                turnSmoothTime);
+
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+            velocity += (speed * Time.deltaTime * (Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward));
         }
-        else if (forward < 0)
+        else
         {
-            inputDirection.z = backwardWalkCycleSpeed;
+            animator.SetBool("Walking", false);
         }
-        var transformDirection = transform.TransformDirection(inputDirection);
 
-        var flatMovement = speed * Time.deltaTime * transformDirection;
-        velocity = new Vector3(flatMovement.x, velocity.y, flatMovement.z);
-
+        // Account for jumping.
         if (PlayerJumped)
             velocity.y = jumpStrength;
         else if (controller.isGrounded)
@@ -61,12 +62,7 @@ public class PlayerController : MonoBehaviour
         else
             velocity.y -= gravity * Time.deltaTime;
 
-        // Update animator params.
-        var isWalking = inputDirection.z >= 0.1f || inputDirection.z <= -0.1;
-        var isBackwards = inputDirection.z <= -0.1f;
-        animator.SetBool("Walking", isWalking);
-        animator.SetFloat("WalkSpeed", isBackwards ? backwardWalkCycleSpeed : forwardWalkCycleSpeed);
-
+        // Apply movement to character controller.
         controller.Move(velocity);
     }
 
