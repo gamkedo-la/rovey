@@ -12,6 +12,8 @@ public class ThirdPersonCamera : MonoBehaviour
     void Start()
     {
         freeLook = (CinemachineFreeLook) GetComponentInChildren<CinemachineBrain>().ActiveVirtualCamera;
+        // transform.parent = transform.root;
+        Debug.Log(transform.root);
     }
 
     private void LateUpdate()
@@ -21,6 +23,13 @@ public class ThirdPersonCamera : MonoBehaviour
         {
             freeLook.m_XAxis.m_InputAxisValue = Input.GetAxis("Mouse X");
             freeLook.m_YAxis.m_InputAxisValue = Input.GetAxis("Mouse Y");
+        }
+
+        // Stop camera from getting stuck with last mousex/y axis value.
+        if (Input.GetMouseButtonUp(0))
+        {
+            freeLook.m_XAxis.m_InputAxisValue = 0;
+            freeLook.m_YAxis.m_InputAxisValue = 0;
         }
     }
 }
