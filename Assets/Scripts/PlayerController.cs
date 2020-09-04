@@ -8,9 +8,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 6f;
-    public float turnSpeed = 6f;
     public float gravity = 2f;
     public float jumpStrength = 1f;
+    public float jetpackStrength = 0.1f;
+    public float maxJetpackTime = 2.0f;
+    public float terminalVelocity = -10.0f;
 
     private CharacterController controller;
 
@@ -20,10 +22,11 @@ public class PlayerController : MonoBehaviour
     private Vector3 velocity;
     private float turnSmoothVelocity;
     public float turnSmoothTime = 0.1f;
-    public bool onGround = false;
 
     // FSM Variables
     private bool startJump;
+    private bool jetpacking;
+    private Coroutine activeJetpackTimer;
 
     // Start is called before the first frame update.
     void Start()
@@ -45,8 +48,8 @@ public class PlayerController : MonoBehaviour
         if (direction.sqrMagnitude >= 0.1f)
         {
             animator.SetBool("Walking", true);
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity,
+            var targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            var angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity,
                 turnSmoothTime);
 
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
@@ -57,17 +60,33 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Walking", false);
         }
 
-
         animator.SetBool("OnGround", controller.isGrounded);
         animator.SetBool("JumpButton", Input.GetButton("Jump"));
 
-        var fallAmount = controller.isGrounded ? -0.1f : -gravity * Time.deltaTime;
-        velocity.y += fallAmount;
+        if (controller.isGrounded)
+        {
+            velocity.y = -0.1f;
+        }
+        else
+        {
+            var fallSpeed = velocity.y - (gravity * Time.deltaTime);
+            velocity.y = Mathf.Clamp(fallSpeed, terminalVelocity, velocity.y);
+        }
 
         if (startJump)
         {
             startJump = false;
             velocity.y = jumpStrength;
+        }
+
+        if (jetpacking)
+        {
+            velocity.y = jetpackStrength;
+
+            if (!Input.GetButton("Jump"))
+            {
+                StopJetpack();
+            }
         }
 
         // Apply movement to character controller.
@@ -77,6 +96,29 @@ public class PlayerController : MonoBehaviour
     public void StartJump()
     {
         startJump = true;
+    }
+
+    public void StartJetpack()
+    {
+        jetpacking = true;
+        activeJetpackTimer = StartCoroutine(JetpackTimer());
+        animator.ResetTrigger("StopJetpack");
+    }
+
+    public void StopJetpack()
+    {
+        jetpacking = false;
+        StopCoroutine(activeJetpackTimer);
+        animator.SetTrigger("StopJetpack");
+    }
+
+    IEnumerator JetpackTimer()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(maxJetpackTime);
+            StopJetpack();
+        }
     }
 
     private bool PlayerJumped => controller.isGrounded && !animator.GetBool("Jumping") && Input.GetAxisRaw("Jump") >= 0.1f;

@@ -12,7 +12,6 @@ public class SendMessageState : StateMachineBehaviour
     {
         if (!string.IsNullOrEmpty(onEnter))
         {
-            // animator.SendMessageUpwards(onEnter, SendMessageOptions.RequireReceiver);
             animator.SendMessageUpwards(onEnter);
         }
     }
@@ -24,10 +23,11 @@ public class SendMessageState : StateMachineBehaviour
     //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        if (!string.IsNullOrEmpty(onExit))
+            animator.SendMessageUpwards(onExit);
+    }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
     //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

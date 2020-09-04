@@ -78,13 +78,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 30
-  turnSpeed: 120
   gravity: 1.5
   jumpStrength: 0.6
+  jetpackStrength: 0.1
+  maxJetpackTime: 2
+  terminalVelocity: -3
   cam: {fileID: 0}
   animator: {fileID: 0}
   turnSmoothTime: 0.1
-  onGround: 0
 --- !u!143 &6045258957117809494
 CharacterController:
   m_ObjectHideFlags: 0
@@ -241,12 +242,12 @@ PrefabInstance:
     - target: {fileID: 4294123182787597533, guid: 29335ca94c5c10444b886da524074251,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00000001915149
+      value: -0.00000001915149
       objectReference: {fileID: 0}
     - target: {fileID: 4294123182787597533, guid: 29335ca94c5c10444b886da524074251,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000018151534
+      value: 0.0000000018151534
       objectReference: {fileID: 0}
     - target: {fileID: 6262214510170463339, guid: 29335ca94c5c10444b886da524074251,
         type: 3}
@@ -321,7 +322,7 @@ PrefabInstance:
     - target: {fileID: 6671413650819857293, guid: 29335ca94c5c10444b886da524074251,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.11244858
+      value: 0.11244857
       objectReference: {fileID: 0}
     - target: {fileID: 6671413650819857293, guid: 29335ca94c5c10444b886da524074251,
         type: 3}
@@ -331,12 +332,12 @@ PrefabInstance:
     - target: {fileID: 6671413650819857293, guid: 29335ca94c5c10444b886da524074251,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 3.2366518e-15
+      value: -0.000000020847013
       objectReference: {fileID: 0}
     - target: {fileID: 6671413650819857293, guid: 29335ca94c5c10444b886da524074251,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -1.1160775e-16
+      value: 0.0000000023591797
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29335ca94c5c10444b886da524074251, type: 3}
