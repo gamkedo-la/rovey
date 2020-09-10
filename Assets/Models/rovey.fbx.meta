@@ -22,6 +22,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Dawnbringer
+    second: {fileID: 2100000, guid: a6bb3dc83fa36284ba1c43bd9291a54f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DawnbringerEmissive
+    second: {fileID: 2100000, guid: 9b1320b20c570b449942e3e5e1cac8f9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Material.001
     second: {fileID: 2100000, guid: a6bb3dc83fa36284ba1c43bd9291a54f, type: 2}
   materials:
