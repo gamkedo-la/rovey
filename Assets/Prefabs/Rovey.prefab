@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 6045258957117809494}
   m_Layer: 0
   m_Name: Rovey
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -258,12 +258,12 @@ PrefabInstance:
     - target: {fileID: 1563905448190449234, guid: 29335ca94c5c10444b886da524074251,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000003830298
+      value: 0.00000003830298
       objectReference: {fileID: 0}
     - target: {fileID: 1563905448190449234, guid: 29335ca94c5c10444b886da524074251,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000036303072
+      value: -0.0000000036303072
       objectReference: {fileID: 0}
     - target: {fileID: 1563905448190449234, guid: 29335ca94c5c10444b886da524074251,
         type: 3}
@@ -348,12 +348,12 @@ PrefabInstance:
     - target: {fileID: 4294123182787597533, guid: 29335ca94c5c10444b886da524074251,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000001915149
+      value: 0.00000001915149
       objectReference: {fileID: 0}
     - target: {fileID: 4294123182787597533, guid: 29335ca94c5c10444b886da524074251,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000018151535
+      value: -0.0000000018151535
       objectReference: {fileID: 0}
     - target: {fileID: 6262214510170463339, guid: 29335ca94c5c10444b886da524074251,
         type: 3}
@@ -428,7 +428,7 @@ PrefabInstance:
     - target: {fileID: 6671413650819857293, guid: 29335ca94c5c10444b886da524074251,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.11244859
+      value: 0.112448595
       objectReference: {fileID: 0}
     - target: {fileID: 6671413650819857293, guid: 29335ca94c5c10444b886da524074251,
         type: 3}
@@ -438,12 +438,12 @@ PrefabInstance:
     - target: {fileID: 6671413650819857293, guid: 29335ca94c5c10444b886da524074251,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000011923995
+      value: -0.00000001827821
       objectReference: {fileID: 0}
     - target: {fileID: 6671413650819857293, guid: 29335ca94c5c10444b886da524074251,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000013493946
+      value: 0.000000002068478
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29335ca94c5c10444b886da524074251, type: 3}
