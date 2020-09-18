@@ -25,7 +25,7 @@ public class WaypointMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         var currentWaypointPosition = waypoints[currentWaypointIndex].position;
         var targetWaypointPosition = waypoints[targetWaypointIndex].position;
