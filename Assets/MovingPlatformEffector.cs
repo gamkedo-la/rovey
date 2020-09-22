@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class MovingPlatformEffector : MonoBehaviour
 {
-    public Vector3 effectiveVelocity = Vector3.zero;
-
+    private Vector3 effectiveVelocity = Vector3.zero;
     private Vector3 previousPosition;
 
     private void Start()
@@ -15,15 +14,15 @@ public class MovingPlatformEffector : MonoBehaviour
 
     private void FixedUpdate()
     {
-        effectiveVelocity = (transform.position - previousPosition) - transform.up;
-        previousPosition = transform.position;
+        var currentPosition = transform.position;
+        effectiveVelocity = (currentPosition - previousPosition) - transform.up;
+        previousPosition = currentPosition;
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            //Debug.Log("ontriggerstay with player");
             var playerController = other.GetComponent<CharacterController>();
             if (playerController.isGrounded)
             {
