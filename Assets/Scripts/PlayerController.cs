@@ -28,6 +28,9 @@ public class PlayerController : MonoBehaviour
     private bool jetpacking;
     private Coroutine activeJetpackTimer;
 
+    // Public variable hack for SproingPlatform.
+    public bool sproinging = false;
+
     // Start is called before the first frame update.
     void Start()
     {
@@ -87,6 +90,11 @@ public class PlayerController : MonoBehaviour
             {
                 StopJetpack();
             }
+        }
+
+        if (sproinging)
+        {
+            velocity.y = 0;
         }
 
         // Apply movement to character controller.

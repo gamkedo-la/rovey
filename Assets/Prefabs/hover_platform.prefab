@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1674734261933523497}
   - component: {fileID: 7026270280036416607}
   - component: {fileID: 4101530498995720267}
-  - component: {fileID: 4618381936000231203}
   m_Layer: 0
   m_Name: fanblade_column
   m_TagString: Untagged
@@ -86,22 +85,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!111 &4618381936000231203
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 974266666910709072}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: -5589778297279217844, guid: f0fa7ddf79f1ecd4c991eb02f73ac163,
-    type: 3}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1 &4474655754047204053
 GameObject:
   m_ObjectHideFlags: 0
