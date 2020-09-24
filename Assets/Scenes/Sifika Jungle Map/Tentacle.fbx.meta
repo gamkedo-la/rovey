@@ -1,14 +1,27 @@
 fileFormatVersion: 2
-guid: ec5f397cf39588043bccdae08a8cd0d9
+guid: 061270bb8484838409af5bd747a5f1eb
 ModelImporter:
   serializedVersion: 19301
-  internalIDToNameTable: []
-  externalObjects:
+  internalIDToNameTable:
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: 98fa18bc9ff57fd439bf2ee672c46507, type: 2}
+      74: 4781951162920444690
+    second: Armature|ArmatureAction
+  - first:
+      74: -5580246896376687028
+    second: Armature|TentacleTargetAction
+  - first:
+      74: 1933822396667706932
+    second: Armature|TentacleTargetAction.001
+  - first:
+      74: -4361620556136694568
+    second: Armature|TentacleTargetAction.002
+  - first:
+      74: 5026653765827999894
+    second: Armature|TentacleTargetAction.003
+  - first:
+      74: -3822703320575187896
+    second: Armature|TentlacleAction
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
