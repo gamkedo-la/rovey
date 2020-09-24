@@ -204,11 +204,46 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.01747055
       objectReference: {fileID: 0}
+    - target: {fileID: -8536032564503221838, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4db8c9a42733944795ecd5d27fdc964, type: 2}
+    - target: {fileID: -1633008521719262664, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4db8c9a42733944795ecd5d27fdc964, type: 2}
+    - target: {fileID: -79819462686323676, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4db8c9a42733944795ecd5d27fdc964, type: 2}
     - target: {fileID: 919132149155446097, guid: a21f2cb5dbbf63b45850544a3610099d,
         type: 3}
       propertyPath: m_Name
       value: BannanaTreeMedium (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1746113472727899388, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4db8c9a42733944795ecd5d27fdc964, type: 2}
+    - target: {fileID: 4173857986338955871, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4db8c9a42733944795ecd5d27fdc964, type: 2}
+    - target: {fileID: 5156380648761706199, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9a1cedf403dba8d4cbeaf0f461abb9e3, type: 2}
+    - target: {fileID: 9017531008069280085, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4db8c9a42733944795ecd5d27fdc964, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a21f2cb5dbbf63b45850544a3610099d, type: 3}
 --- !u!1001 &67927144
@@ -1381,11 +1416,46 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.014558798
       objectReference: {fileID: 0}
+    - target: {fileID: -8536032564503221838, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4db8c9a42733944795ecd5d27fdc964, type: 2}
+    - target: {fileID: -1633008521719262664, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4db8c9a42733944795ecd5d27fdc964, type: 2}
+    - target: {fileID: -79819462686323676, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4db8c9a42733944795ecd5d27fdc964, type: 2}
     - target: {fileID: 919132149155446097, guid: a21f2cb5dbbf63b45850544a3610099d,
         type: 3}
       propertyPath: m_Name
       value: BannanaTreeMedium (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1746113472727899388, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4db8c9a42733944795ecd5d27fdc964, type: 2}
+    - target: {fileID: 4173857986338955871, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4db8c9a42733944795ecd5d27fdc964, type: 2}
+    - target: {fileID: 5156380648761706199, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9a1cedf403dba8d4cbeaf0f461abb9e3, type: 2}
+    - target: {fileID: 9017531008069280085, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4db8c9a42733944795ecd5d27fdc964, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a21f2cb5dbbf63b45850544a3610099d, type: 3}
 --- !u!4 &431070982 stripped
@@ -2844,12 +2914,12 @@ PrefabInstance:
     - target: {fileID: 1237360335119636311, guid: 90a2d398adacfa0488333f3888cb5f08,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000000176568
+      value: 0.000000017656804
       objectReference: {fileID: 0}
     - target: {fileID: 1237360335119636311, guid: 90a2d398adacfa0488333f3888cb5f08,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000016734882
+      value: -0.0000000016734886
       objectReference: {fileID: 0}
     - target: {fileID: 1237360335119636311, guid: 90a2d398adacfa0488333f3888cb5f08,
         type: 3}
@@ -2869,12 +2939,12 @@ PrefabInstance:
     - target: {fileID: 4541930096551089624, guid: 90a2d398adacfa0488333f3888cb5f08,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000000636625
+      value: 0.0000000636625
       objectReference: {fileID: 0}
     - target: {fileID: 4541930096551089624, guid: 90a2d398adacfa0488333f3888cb5f08,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000060338476
+      value: -0.0000000060338476
       objectReference: {fileID: 0}
     - target: {fileID: 4541930096551089624, guid: 90a2d398adacfa0488333f3888cb5f08,
         type: 3}
@@ -3408,11 +3478,46 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.014558802
       objectReference: {fileID: 0}
+    - target: {fileID: -8536032564503221838, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4db8c9a42733944795ecd5d27fdc964, type: 2}
+    - target: {fileID: -1633008521719262664, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4db8c9a42733944795ecd5d27fdc964, type: 2}
+    - target: {fileID: -79819462686323676, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4db8c9a42733944795ecd5d27fdc964, type: 2}
     - target: {fileID: 919132149155446097, guid: a21f2cb5dbbf63b45850544a3610099d,
         type: 3}
       propertyPath: m_Name
       value: BannanaTreeMedium
       objectReference: {fileID: 0}
+    - target: {fileID: 1746113472727899388, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4db8c9a42733944795ecd5d27fdc964, type: 2}
+    - target: {fileID: 4173857986338955871, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4db8c9a42733944795ecd5d27fdc964, type: 2}
+    - target: {fileID: 5156380648761706199, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9a1cedf403dba8d4cbeaf0f461abb9e3, type: 2}
+    - target: {fileID: 9017531008069280085, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4db8c9a42733944795ecd5d27fdc964, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a21f2cb5dbbf63b45850544a3610099d, type: 3}
 --- !u!1001 &1272588573
@@ -4007,11 +4112,46 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.017470557
       objectReference: {fileID: 0}
+    - target: {fileID: -8536032564503221838, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4db8c9a42733944795ecd5d27fdc964, type: 2}
+    - target: {fileID: -1633008521719262664, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4db8c9a42733944795ecd5d27fdc964, type: 2}
+    - target: {fileID: -79819462686323676, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4db8c9a42733944795ecd5d27fdc964, type: 2}
     - target: {fileID: 919132149155446097, guid: a21f2cb5dbbf63b45850544a3610099d,
         type: 3}
       propertyPath: m_Name
       value: BannanaTreeMedium (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1746113472727899388, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4db8c9a42733944795ecd5d27fdc964, type: 2}
+    - target: {fileID: 4173857986338955871, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4db8c9a42733944795ecd5d27fdc964, type: 2}
+    - target: {fileID: 5156380648761706199, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9a1cedf403dba8d4cbeaf0f461abb9e3, type: 2}
+    - target: {fileID: 9017531008069280085, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4db8c9a42733944795ecd5d27fdc964, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a21f2cb5dbbf63b45850544a3610099d, type: 3}
 --- !u!1 &1423938679
@@ -4963,11 +5103,46 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.014558798
       objectReference: {fileID: 0}
+    - target: {fileID: -8536032564503221838, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4db8c9a42733944795ecd5d27fdc964, type: 2}
+    - target: {fileID: -1633008521719262664, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4db8c9a42733944795ecd5d27fdc964, type: 2}
+    - target: {fileID: -79819462686323676, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4db8c9a42733944795ecd5d27fdc964, type: 2}
     - target: {fileID: 919132149155446097, guid: a21f2cb5dbbf63b45850544a3610099d,
         type: 3}
       propertyPath: m_Name
       value: BannanaTreeMedium (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1746113472727899388, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4db8c9a42733944795ecd5d27fdc964, type: 2}
+    - target: {fileID: 4173857986338955871, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4db8c9a42733944795ecd5d27fdc964, type: 2}
+    - target: {fileID: 5156380648761706199, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9a1cedf403dba8d4cbeaf0f461abb9e3, type: 2}
+    - target: {fileID: 9017531008069280085, guid: a21f2cb5dbbf63b45850544a3610099d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4db8c9a42733944795ecd5d27fdc964, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a21f2cb5dbbf63b45850544a3610099d, type: 3}
 --- !u!1001 &1874172101
