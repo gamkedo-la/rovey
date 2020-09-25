@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 public class PlayerController : MonoBehaviour
 {
@@ -31,9 +32,18 @@ public class PlayerController : MonoBehaviour
     // Public variable hack for SproingPlatform.
     public bool sproinging = false;
 
+    // Position to reset the player after death.
+    private Vector3 lastCheckpoint;
+    public Vector3 LastCheckpoint
+    {
+        get => lastCheckpoint;
+        set => lastCheckpoint = value;
+    }
+
     // Start is called before the first frame update.
     void Start()
     {
+        lastCheckpoint = transform.position;
         cam = Camera.main.transform;
         controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
@@ -126,6 +136,17 @@ public class PlayerController : MonoBehaviour
         {
             yield return new WaitForSeconds(maxJetpackTime);
             StopJetpack();
+        }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        Debug.Log(other.gameObject.name);
+        if (other.gameObject.CompareTag("OutOfBounds"))
+        {
+            // @TODO some kinda death/falling animation before we reset position
+            Debug.Log("reset position");
+            transform.position = lastCheckpoint;
         }
     }
 
