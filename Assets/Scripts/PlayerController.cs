@@ -5,6 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
+using UnityEngine.PlayerLoop;
 
 public class PlayerController : MonoBehaviour
 {
@@ -34,16 +35,21 @@ public class PlayerController : MonoBehaviour
 
     // Position to reset the player after death.
     private Vector3 lastCheckpoint;
+
     public Vector3 LastCheckpoint
     {
         get => lastCheckpoint;
         set => lastCheckpoint = value;
     }
 
+    private void Awake()
+    {
+        lastCheckpoint = transform.position;
+    }
+
     // Start is called before the first frame update.
     void Start()
     {
-        lastCheckpoint = transform.position;
         cam = Camera.main.transform;
         controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
@@ -139,15 +145,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        Debug.Log(other.gameObject.name);
-        if (other.gameObject.CompareTag("OutOfBounds"))
+        if (hit.gameObject.CompareTag("OutOfBounds"))
         {
             // @TODO some kinda death/falling animation before we reset position
-            Debug.Log("reset position");
-            transform.position = lastCheckpoint;
+            ResetPosition(lastCheckpoint);
         }
+    }
+
+    private void ResetPosition(Vector3 targetPosition)
+    {
+        velocity = Vector3.zero;
+        transform.position = targetPosition + (Vector3.up * controller.height/2);
     }
 
     private bool PlayerJumped => controller.isGrounded && !animator.GetBool("Jumping") && Input.GetAxisRaw("Jump") >= 0.1f;
