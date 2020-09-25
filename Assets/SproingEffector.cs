@@ -8,10 +8,16 @@ public class SproingEffector : MonoBehaviour
 {
     public float sproingStrength = 2.0f;
 
+    private Animator anim;
     private CharacterController targetCharacterController;
     private PlayerController targetPlayerController;
     private float gravity = 0f;
     private float velocity = 0f;
+
+    private void Start()
+    {
+        anim = GetComponentInChildren<Animator>();
+    }
 
     private void FixedUpdate()
     {
@@ -34,6 +40,7 @@ public class SproingEffector : MonoBehaviour
     private void StartSproing()
     {
         targetPlayerController.sproinging = true;
+        anim.SetTrigger("Sproing");
         gravity = 0f;
         velocity = 0f;
     }
@@ -41,6 +48,7 @@ public class SproingEffector : MonoBehaviour
     private void EndSproing()
     {
         targetPlayerController.sproinging = false;
+        anim.ResetTrigger("Sproing");
         targetCharacterController = null;
         targetPlayerController = null;
     }

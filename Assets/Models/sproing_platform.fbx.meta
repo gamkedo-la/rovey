@@ -30,6 +30,45 @@ ModelImporter:
   - first:
       74: 3128040160433761301
     second: sproing|sproingAction
+  - first:
+      74: -896551028912434756
+    second: sproing_platform.top|piston_tube
+  - first:
+      74: -9134685704612671063
+    second: piston_tube|piston_tube
+  - first:
+      74: 2891259096333037088
+    second: piston_tube|sproing!
+  - first:
+      74: -1596509252182384710
+    second: piston_shaft|piston_tube
+  - first:
+      74: 1503157937424058454
+    second: piston_shaft|sproing!
+  - first:
+      74: 2744744916959278350
+    second: sproing_platform.top|Action
+  - first:
+      74: 3923385916348610713
+    second: sproing_platform.top|platform
+  - first:
+      74: 3101741599816471940
+    second: piston_shaft|piston_shaftAction
+  - first:
+      74: -2104704686027005580
+    second: piston_tube|piston
+  - first:
+      74: 4781951162920444690
+    second: Armature|ArmatureAction
+  - first:
+      74: 7061217238576504560
+    second: SproingPlatform.Sproing
+  - first:
+      74: -3133124881180165799
+    second: Armature|Sproing (1)
+  - first:
+      74: -593377743073730713
+    second: SproingPlatform.Idle
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -83,7 +122,65 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: SproingPlatform.Idle
+      takeName: Armature|SproingIdle
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: SproingPlatform.Sproing
+      takeName: Armature|Sproing
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
