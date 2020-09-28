@@ -8,7 +8,7 @@ public class SproingEffector : MonoBehaviour
 {
     public float sproingStrength = 2.0f;
 
-    private Animator anim;
+    private Animator anim; // optional: works with non animated props too
     private CharacterController targetCharacterController;
     private PlayerController targetPlayerController;
     private float gravity = 0f;
@@ -39,16 +39,16 @@ public class SproingEffector : MonoBehaviour
 
     private void StartSproing()
     {
-        targetPlayerController.sproinging = true;
-        anim.SetTrigger("Sproing");
+        if (targetPlayerController) targetPlayerController.sproinging = true;
+        if (anim) anim.SetTrigger("Sproing");
         gravity = 0f;
         velocity = 0f;
     }
 
     private void EndSproing()
     {
-        targetPlayerController.sproinging = false;
-        anim.ResetTrigger("Sproing");
+        if (targetPlayerController) targetPlayerController.sproinging = false;
+        if (anim) anim.ResetTrigger("Sproing");
         targetCharacterController = null;
         targetPlayerController = null;
     }
@@ -58,7 +58,7 @@ public class SproingEffector : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             var characterController = other.GetComponent<CharacterController>();
-            if (characterController.isGrounded)
+            if (characterController && characterController.isGrounded)
             {
                 targetCharacterController = characterController;
                 targetPlayerController = other.GetComponent<PlayerController>();
