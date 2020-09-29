@@ -152,6 +152,20 @@ public class PlayerController : MonoBehaviour
             // @TODO some kinda death/falling animation before we reset position
             ResetPosition(lastCheckpoint);
         }
+        else if (hit.gameObject.CompareTag("Checkpoint"))
+        {
+            lastCheckpoint = hit.transform.position;
+            Debug.Log("checkpoint updated");
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Checkpoint"))
+        {
+            lastCheckpoint = other.transform.position;
+            Debug.Log("checkpoint updated");
+        }
     }
 
     private void ResetPosition(Vector3 targetPosition)
