@@ -5,7 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - OutOfBounds
+<<<<<<< Updated upstream
   - Checkpoint
+=======
+  - Terrain
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
@@ -17,7 +21,7 @@ TagManager:
   - 
   - Enemy
   - OutOfBounds
-  - 
+  - Terrain
   - 
   - 
   - 
