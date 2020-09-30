@@ -14,7 +14,7 @@ public class MusicRegion : MonoBehaviour {
 	public MusicPool pool;
 	public MusicTrack[] tracks = new MusicTrack[0];
 
-	public LayerMask layers;
+	public string tagFilter;
 
 	private void Start()
 	{
@@ -31,7 +31,7 @@ public class MusicRegion : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (0 != (layers.value & 1 << other.gameObject.layer)) {
+		if (other.gameObject.tag == tagFilter) {
 			MusicManager.Instance.PushMusicPool(pool);
 			if (startMusicOnTriggerEnter) MusicManager.Instance.StartMusic();
 			if (hardOutOnTriggerEnter) MusicManager.Instance.TransitionMusicNow();
@@ -39,7 +39,7 @@ public class MusicRegion : MonoBehaviour {
 	}
 
 	void OnTriggerExit(Collider other) {
-		if (0 != (layers.value & 1 << other.gameObject.layer))
+		if (other.gameObject.tag == tagFilter)
 			MusicManager.Instance.PopMusicPool();
 		if (stopMusicOnTriggerExit) MusicManager.Instance.FadeOutMusic(fadeTime);
 		if (hardOutOnTriggerExit) MusicManager.Instance.TransitionMusicNow();
