@@ -74,7 +74,8 @@ public class RollerMove : MonoBehaviour
     public void LostPlayer()
     {
         chasing = false;
-        _destination = _patrolPoint[0];
+        GetNextDestination();
+        //_destination = _patrolPoint[0];
     }
 
     void GetNextDestination()
@@ -94,11 +95,79 @@ public class RollerMove : MonoBehaviour
             StartCoroutine(Pause());
         }
     }
-
     private IEnumerator Pause()
     {
         yield return new WaitForSeconds(pauseTime);
         _destination = _patrolPoint[lastPatrolPoint];
         SetDestination();
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Trigger entered");
+        //if (CheckLOS())
+        //{
+        //    SpotPlayer();
+        //}
+        SpotPlayer();
+    }
+
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (CheckLOS())
+    //    {
+    //        SpotPlayer();
+    //    }
+
+    //}
+
+    private void OnTriggerExit(Collider other)
+    {
+        Debug.Log("Trigger exit");
+        //if (!CheckLOS())
+        //{
+        //    LostPlayer();
+        //}
+        LostPlayer();
+
+    }
+
+    private bool CheckLOS()
+    {
+        RaycastHit Hit;
+        Debug.DrawRay(transform.position, _destination.position - transform.position, Color.blue);
+        if (Physics.Raycast(transform.position, _destination.position - transform.position, out Hit) && Hit.transform.tag == "Terrain")
+        {
+            Debug.Log("Terrain Hit");
+            return false;
+        }
+        if (Physics.Raycast(transform.position, _destination.position - transform.position, out Hit) && Hit.transform.tag == "Player")
+        {
+            Debug.Log("Player Hit");
+            return true;
+        }
+        else
+        {
+            Debug.Log("Cast failed");
+            return false;
+        }
+    }
+
+#if UNITY_EDITOR
+    //Code here for Editor only.
+    void OnDrawGizmos()
+    {
+        // Draw a yellow sphere at the transform's position
+        foreach (Transform trans in _patrolPoint)
+        {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(trans.position, 1);
+
+        }
+        // Draw a red sphere at the transform's position
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(_destination.position, 1.5f);
+    }
+
+#endif
 }
