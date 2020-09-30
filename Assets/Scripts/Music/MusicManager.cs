@@ -54,6 +54,7 @@ public class MusicManager : MonoBehaviour {
 
 		if (Time.time >= nextEndTime) {
 			if (activeTrack.looping) {
+				Debug.Log("Looping");
 				MusicTrack newTrack = ReturnNewTrack();
 				if (newTrack == activeTrack) {
 					SetNextEndTime();
@@ -61,7 +62,9 @@ public class MusicManager : MonoBehaviour {
 					FadeCurrentTrack();
 					PlayNewTrack(newTrack);
 				}
-			} else {
+			} else
+			{
+				Debug.Log("!Looping");
 				float destroyTime = activeSource.clip.length - activeSource.time + Time.deltaTime;
 				Destroy(activeSource.gameObject, destroyTime);
 				PlayNewTrack();
