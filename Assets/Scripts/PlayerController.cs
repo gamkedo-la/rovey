@@ -5,6 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
+using UnityEngine.Events;
 using UnityEngine.PlayerLoop;
 
 public class PlayerController : MonoBehaviour
@@ -35,6 +36,9 @@ public class PlayerController : MonoBehaviour
 
     // Position to reset the player after death.
     private Vector3 lastCheckpoint;
+
+    // pubsub event for player taking damage.
+    public UnityEvent playerDamaged;
 
     public Vector3 LastCheckpoint
     {
@@ -134,6 +138,11 @@ public class PlayerController : MonoBehaviour
         jetpacking = false;
         StopCoroutine(activeJetpackTimer);
         animator.SetTrigger("StopJetpack");
+    }
+
+    public void TakeDamage()
+    {
+        playerDamaged.Invoke();
     }
 
     IEnumerator JetpackTimer()

@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 8617876236405908276}
   - component: {fileID: 7275309519907829391}
   - component: {fileID: 6796693499370286971}
+  - component: {fileID: 3615333615489773078}
   m_Layer: 8
   m_Name: LavaOrb
   m_TagString: Untagged
@@ -158,3 +159,15 @@ MonoBehaviour:
     type: 3}
   groundCollisionEffect: {fileID: 1020317360994168106, guid: 1fa22c52992cefe4abec975fb3406410,
     type: 3}
+--- !u!114 &3615333615489773078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6706526882723441606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ade7614ae3618547a8a4f2774b70d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
