@@ -60,6 +60,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame.
+    // Hello world test comment, practicing using git. Will remove - Bjorn
     void FixedUpdate()
     {
         var horizontal = Input.GetAxisRaw("Horizontal");
