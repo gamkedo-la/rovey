@@ -36,9 +36,6 @@ public class PlayerController : MonoBehaviour
     // Public variable hack for SproingPlatform.
     public bool sproinging = false;
 
-    // Public variable for landing - may remove BT
-    public bool landing = false;
-
     // Position to reset the player after death.
     private Vector3 lastCheckpoint;
 
@@ -99,9 +96,6 @@ public class PlayerController : MonoBehaviour
         {
             var fallSpeed = velocity.y - (gravity * Time.deltaTime);
             velocity.y = Mathf.Clamp(fallSpeed, terminalVelocity, velocity.y);
-
-            //Bjorn landing ground detection
-            //CheckGround();
         }
 
         if (startJump)
@@ -146,26 +140,6 @@ public class PlayerController : MonoBehaviour
         jetpacking = false;
         StopCoroutine(activeJetpackTimer);
         animator.SetTrigger("StopJetpack");
-    }
-
-    //Bjorn messing with landing animation ground detection
-    public void CheckGround()
-    {
-        RaycastHit hit;
-        float distance = 0.5f;
-        Vector3 dir = new Vector3(0, -1);
-
-        if (Physics.Raycast(transform.position, dir, out hit, distance))
-        {
-            landing = true;
-           // Debug.Log("landing");
-        }
-        else
-        {
-            landing = false;
-           // Debug.Log("nolanding");
-
-        }
     }
 
     public void TakeDamage()
