@@ -104,7 +104,6 @@ GameObject:
   - component: {fileID: 612968215471767981}
   - component: {fileID: 612968215471767982}
   - component: {fileID: 612968215471767983}
-  - component: {fileID: 612968215471767980}
   m_Layer: 0
   m_Name: yellowBouncy
   m_TagString: Untagged
@@ -160,22 +159,6 @@ MonoBehaviour:
   wobbleSpeed: 5
   bounceSound: {fileID: 0}
   bounceSpawnPrefab: {fileID: 0}
---- !u!54 &612968215471767980
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 612968215471767978}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &612968216087331905
 GameObject:
   m_ObjectHideFlags: 0
