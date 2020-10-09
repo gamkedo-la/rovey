@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public float jetpackStrength = 0.1f;
     public float maxJetpackTime = 2.0f;
     public float terminalVelocity = -10.0f;
+    public int collectedCollectables = 0;
 
     private CharacterController controller;
 
@@ -123,6 +124,7 @@ public class PlayerController : MonoBehaviour
 
         // Apply movement to character controller.
         controller.Move(velocity);
+        checkWin();
     }
 
     public void StartJump()
@@ -170,6 +172,14 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Invincible", false);
         //Debug.Log("Player is no longer invincible!");
     }
+    
+    private void checkWin()
+    {
+        if(collectedCollectables >= 3)
+        {
+            // insert level complete code
+        }
+    }
 
     private IEnumerator JetpackTimer()
     {
@@ -191,6 +201,11 @@ public class PlayerController : MonoBehaviour
         {
             lastCheckpoint = hit.transform.position;
             Debug.Log("checkpoint updated");
+        }
+        else if (hit.gameObject.CompareTag("Collectable"))
+        {
+            collectedCollectables++;
+            Destroy(hit.gameObject);
         }
     }
 
