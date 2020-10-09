@@ -41,6 +41,8 @@ public class PlayerController : MonoBehaviour
 
     // pubsub event for player taking damage.
     public UnityEvent playerDamaged;
+    public bool isInvincible = false;
+    public float invincibilityDurationSeconds = 1f;
 
     public Vector3 LastCheckpoint
     {
@@ -144,10 +146,32 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage()
     {
-        playerDamaged.Invoke();
+        if (!isInvincible)
+        {
+            playerDamaged.Invoke();
+            StartCoroutine(BecomeTemporarilyInvincible());
+        }
+        else
+        {
+            return;
+        }
+
     }
 
-    IEnumerator JetpackTimer()
+    public IEnumerator BecomeTemporarilyInvincible()
+    {
+        //Debug.Log("Player turned invincible!");
+        isInvincible = true;
+        animator.SetBool("Invincible", true);
+
+        yield return new WaitForSeconds(invincibilityDurationSeconds);
+
+        isInvincible = false;
+        animator.SetBool("Invincible", false);
+        //Debug.Log("Player is no longer invincible!");
+    }
+
+    private IEnumerator JetpackTimer()
     {
         while (true)
         {
