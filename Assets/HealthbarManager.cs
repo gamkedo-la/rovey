@@ -21,7 +21,7 @@ public class HealthbarManager : MonoBehaviour
         colors = new Color[5];
         SetupColors();
 
-        RemoveHealth(transform.childCount, true);
+        RemoveHealth(transform.childCount);
         AddHealth(playerMaxHealth);
     }
 
@@ -62,7 +62,7 @@ public class HealthbarManager : MonoBehaviour
         }
     }
 
-    public void RemoveHealth(int amount = 1, bool immediate = false)
+    public void RemoveHealth(int amount = 1)
     {
         if (transform.childCount == 0) return;
 
@@ -72,10 +72,8 @@ public class HealthbarManager : MonoBehaviour
         for (var i = childCount - 1; i >= childCount - amountToRemove; i--)
         {
             var child = transform.GetChild(i).gameObject;
-            if (immediate)
-                DestroyImmediate(child);
-            else
-                Destroy(child);
+            child.transform.SetParent(null, false);
+            Destroy(child);
         }
     }
 }
