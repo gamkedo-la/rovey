@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     public float jetpackStrength = 0.1f;
     public float maxJetpackTime = 2.0f;
     public float terminalVelocity = -10.0f;
-    public int collectedCollectables = 0;
+    public int KeyItems = 0;
 
     private CharacterController controller;
 
@@ -175,7 +175,7 @@ public class PlayerController : MonoBehaviour
     
     private void checkWin()
     {
-        if(collectedCollectables >= 3)
+        if(KeyItems >= 3)
         {
             // insert level complete code
         }
@@ -202,9 +202,9 @@ public class PlayerController : MonoBehaviour
             lastCheckpoint = hit.transform.position;
             Debug.Log("checkpoint updated");
         }
-        else if (hit.gameObject.CompareTag("Collectable"))
+        else if (hit.gameObject.CompareTag("KeyItem"))
         {
-            collectedCollectables++;
+            KeyItems++;
             Destroy(hit.gameObject);
         }
     }
