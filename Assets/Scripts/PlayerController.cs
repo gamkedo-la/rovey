@@ -36,6 +36,9 @@ public class PlayerController : MonoBehaviour
     // Public variable hack for SproingPlatform.
     public bool sproinging = false;
 
+    public bool knocked = false;
+    private Vector3 knockVel = Vector3.zero;
+
     // Position to reset the player after death.
     private Vector3 lastCheckpoint;
 
@@ -62,10 +65,11 @@ public class PlayerController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
     }
-
+    
     // Update is called once per frame.
     void FixedUpdate()
     {
+        
         var horizontal = Input.GetAxisRaw("Horizontal");
         var forward = Input.GetAxisRaw("Vertical");
         var direction = new Vector3(horizontal, 0f, forward).normalized;
@@ -75,12 +79,17 @@ public class PlayerController : MonoBehaviour
         if (direction.sqrMagnitude >= 0.1f)
         {
             animator.SetBool("Walking", true);
-            var targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
-            var angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity,
-                turnSmoothTime);
 
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
-            velocity += (speed * Time.deltaTime * (Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward));
+            if (!knocked)
+            {
+                
+                var targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+                var angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity,
+                    turnSmoothTime);
+
+                transform.rotation = Quaternion.Euler(0f, angle, 0f);
+                velocity += (speed * Time.deltaTime * (Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward));
+            }
         }
         else
         {
@@ -121,6 +130,17 @@ public class PlayerController : MonoBehaviour
             velocity.y = 0;
         }
 
+        if (knocked = true)
+        {
+            controller.Move(knockVel * Time.deltaTime);
+            knockVel *= 0.9f;
+
+            if( knockVel.x < 0.25 &&  knockVel.z < 0.25)
+            { 
+                knocked = false;
+            }
+        }
+
         // Apply movement to character controller.
         controller.Move(velocity);
     }
@@ -150,25 +170,30 @@ public class PlayerController : MonoBehaviour
         {
             playerDamaged.Invoke();
             StartCoroutine(BecomeTemporarilyInvincible());
+            knocked = true;
         }
         else
         {
+            Debug.Log("I'm Invincible!");
             return;
         }
 
     }
 
+    public void Shove(Vector3 knockForce)
+    {
+        knockVel += knockForce;
+    }
+
     public IEnumerator BecomeTemporarilyInvincible()
     {
-        //Debug.Log("Player turned invincible!");
+        
         isInvincible = true;
-        animator.SetBool("Invincible", true);
-
+        
         yield return new WaitForSeconds(invincibilityDurationSeconds);
 
         isInvincible = false;
-        animator.SetBool("Invincible", false);
-        //Debug.Log("Player is no longer invincible!");
+      
     }
 
     private IEnumerator JetpackTimer()
