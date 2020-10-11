@@ -8,6 +8,7 @@ TagManager:
   - OutOfBounds
   - Checkpoint
   - KeyItem
+  - Collectable
   layers:
   - Default
   - TransparentFX

@@ -16,7 +16,7 @@ filters = {
 	asset = true
 }
 scopes = {
-	"last_search.AB59B443" = "spritedefault"
+	"last_search.AB59B443" = "sheet_meta"
 }
 providers = {
 	asset = {
