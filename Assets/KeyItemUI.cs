@@ -25,6 +25,7 @@ public class KeyItemUI : MonoBehaviour
             var itemSlot = keyItemSlots[itemIndex];
             keyItem.transform.SetParent(itemSlot, false);
             keyItem.transform.localPosition = Vector3.zero;
+            keyItem.transform.localScale = Vector3.one * keyItem.GetComponent<KeyItem>().UIScale;
         }
         else
         {

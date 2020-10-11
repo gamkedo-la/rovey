@@ -6,7 +6,8 @@ using UnityEngine.Events;
 
 public class KeyItem : MonoBehaviour
 {
-    public float rotationSpeed;
+    public float rotationSpeed = 60f;
+    public float UIScale = 1f;
     public UnityEvent itemRetrieved;
     
     // Update is called once per frame
