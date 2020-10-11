@@ -56,7 +56,6 @@ public class HealthbarManager : MonoBehaviour
         {
             var ind = Instantiate(healthIndicatorWidget, Vector3.zero, Quaternion.identity, transform);
             var colorIndex = transform.childCount - 1;
-            Debug.Log(colorIndex);
             var color = (colorIndex > colors.Length - 1) ? extraColor : colors[colorIndex];
             ind.GetComponent<CanvasRenderer>()?.SetColor(color);
         }
