@@ -227,11 +227,6 @@ public class PlayerController : MonoBehaviour
             lastCheckpoint = hit.transform.position;
             Debug.Log("checkpoint updated");
         }
-        else if (hit.gameObject.CompareTag("KeyItem"))
-        {
-            KeyItems++;
-            Destroy(hit.gameObject);
-        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -240,6 +235,10 @@ public class PlayerController : MonoBehaviour
         {
             lastCheckpoint = other.transform.position;
             Debug.Log("checkpoint updated");
+        }
+        else if (other.gameObject.CompareTag("KeyItem"))
+        {
+            KeyItems++;
         }
     }
 
