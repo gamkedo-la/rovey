@@ -38,4 +38,13 @@ public class MenuButton : MonoBehaviour
             animator.SetBool("Selected", false);
         }
     }
+
+    public void ButtonFunction()
+    {
+        if (gameObject.GetComponent<LoadScenes>())
+        {
+            LoadScenes loadScenes = gameObject.GetComponent<LoadScenes>();
+            loadScenes.LoadScene(loadScenes.SceneToLoad);
+        }
+    }
 }
