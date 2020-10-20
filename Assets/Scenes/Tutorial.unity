@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.04727007, g: 0.038752403, b: 0.07230478, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0.99999905, b: 0.99999905, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -158,6 +158,51 @@ Transform:
   - {fileID: 413786620}
   m_Father: {fileID: 0}
   m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &322394918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 322394920}
+  - component: {fileID: 322394919}
+  m_Layer: 0
+  m_Name: Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &322394919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322394918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 005cd45143b7e394496c0470bb752575, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSourcePrefab: {fileID: 3474916888593357456, guid: 6b27a554c7899c64f93a2560946d4fdf,
+    type: 3}
+--- !u!4 &322394920
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322394918}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -47.921875, y: -14.203125, z: 126.05176}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &336013470
 PrefabInstance:
@@ -1269,12 +1314,12 @@ PrefabInstance:
     - target: {fileID: 949513880518118729, guid: 90a2d398adacfa0488333f3888cb5f08,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.020934751
+      value: 0.020934753
       objectReference: {fileID: 0}
     - target: {fileID: 949513880518118729, guid: 90a2d398adacfa0488333f3888cb5f08,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.071146086
+      value: 0.07114609
       objectReference: {fileID: 0}
     - target: {fileID: 949513880518118729, guid: 90a2d398adacfa0488333f3888cb5f08,
         type: 3}
