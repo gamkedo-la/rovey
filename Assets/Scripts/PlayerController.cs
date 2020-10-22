@@ -12,41 +12,54 @@ using UnityEngine.PlayerLoop;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Movement Settings")]
     public float speed = 6f;
     public float gravity = 2f;
     public float jumpStrength = 1f;
     public float jetpackStrength = 0.1f;
     public float maxJetpackTime = 2.0f;
     public float terminalVelocity = -10.0f;
-    public int KeyItems = 0;
-
-    private CharacterController controller;
-
-    public Transform cam;
-    public Animator animator;
-
     private Vector3 velocity;
     private float turnSmoothVelocity;
     public float turnSmoothTime = 0.1f;
-
-    // FSM Variables
-    private bool startJump;
-    private bool jetpacking;
-    private Coroutine activeJetpackTimer;
-
-    // Public variable hack for SproingPlatform.
-    public bool sproinging = false;
-
-    public bool knocked = false;
     private Vector3 knockVel = Vector3.zero;
 
-    // Position to reset the player after death.
-    private Vector3 lastCheckpoint;
 
-    // pubsub event for player taking damage.
-    public UnityEvent playerDamaged;
+    [Header("References and Events")]
+    public Transform cam;
+    public Animator animator;
+    public UnityEvent playerDamaged; // pubsub event for player taking damage.
+    private CharacterController controller;
+    private Coroutine activeJetpackTimer;
+
+
+    // FSM Variables
+    [Header("Game State")]
+    public bool sproinging = false; // Public variable hack for SproingPlatform.
+    public bool knocked = false;
     public bool isInvincible = false;
+    public bool startJump; // note: was private, made public for debug info
+    public bool jetpacking;  // note: was private, made public for debug info
+    public int KeyItems = 0;
     public float invincibilityDurationSeconds = 1f;
+    private Vector3 lastCheckpoint; // Position to reset the player after death.
+
+    // spawn prefabs when things happen!
+    [Header("Prefabs To Spawn When Stuff Happens")]
+    public GameObject spawnOnJump;
+    public GameObject spawnOnLand;
+    public GameObject spawnOnJetpackStart;
+    public GameObject spawnOnJetpackEnd;
+    public GameObject spawnOnFootstep1;
+    public GameObject spawnOnFootstep2;
+    public GameObject spawnOnDamage;
+    public GameObject spawnOnShove;
+    public GameObject spawnOnBounce;
+    public GameObject spawnOnPickup;
+    public GameObject spawnOnCheckpoint;
+    public GameObject spawnOnWin;
+    public GameObject spawnOnGameover;
+
 
     public Vector3 LastCheckpoint
     {
@@ -150,6 +163,8 @@ public class PlayerController : MonoBehaviour
     public void StartJump()
     {
         startJump = true;
+        if (spawnOnJump) Instantiate(spawnOnJump, transform.position, transform.rotation);
+
     }
 
     public void StartJetpack()
@@ -157,6 +172,8 @@ public class PlayerController : MonoBehaviour
         jetpacking = true;
         activeJetpackTimer = StartCoroutine(JetpackTimer());
         animator.ResetTrigger("StopJetpack");
+        if (spawnOnJetpackStart) Instantiate(spawnOnJetpackStart, transform.position, transform.rotation);
+
     }
 
     public void StopJetpack()
@@ -164,6 +181,8 @@ public class PlayerController : MonoBehaviour
         jetpacking = false;
         StopCoroutine(activeJetpackTimer);
         animator.SetTrigger("StopJetpack");
+        if (spawnOnJetpackEnd) Instantiate(spawnOnJetpackEnd, transform.position, transform.rotation);
+
     }
 
     public void TakeDamage()
@@ -173,6 +192,8 @@ public class PlayerController : MonoBehaviour
             playerDamaged.Invoke();
             StartCoroutine(BecomeTemporarilyInvincible());
             knocked = true;
+            if (spawnOnDamage) Instantiate(spawnOnDamage, transform.position, transform.rotation);
+
         }
         else
         {
@@ -185,6 +206,8 @@ public class PlayerController : MonoBehaviour
     public void Shove(Vector3 knockForce)
     {
         knockVel += knockForce;
+        if (spawnOnShove) Instantiate(spawnOnShove, transform.position, transform.rotation);
+
     }
 
     public IEnumerator BecomeTemporarilyInvincible()
@@ -203,6 +226,8 @@ public class PlayerController : MonoBehaviour
         if(KeyItems >= 3)
         {
             // insert level complete code
+            if (spawnOnWin) Instantiate(spawnOnWin, transform.position, transform.rotation);
+
         }
     }
 
@@ -226,6 +251,8 @@ public class PlayerController : MonoBehaviour
         {
             lastCheckpoint = hit.transform.position;
             Debug.Log("checkpoint updated");
+            if (spawnOnCheckpoint) Instantiate(spawnOnCheckpoint, transform.position, transform.rotation);
+
         }
     }
 
@@ -235,10 +262,12 @@ public class PlayerController : MonoBehaviour
         {
             lastCheckpoint = other.transform.position;
             Debug.Log("checkpoint updated");
+            if (spawnOnCheckpoint) Instantiate(spawnOnCheckpoint, transform.position, transform.rotation);
         }
         else if (other.gameObject.CompareTag("KeyItem"))
         {
             KeyItems++;
+            if (spawnOnPickup) Instantiate(spawnOnPickup, transform.position, transform.rotation);
         }
     }
 
