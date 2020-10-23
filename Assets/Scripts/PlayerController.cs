@@ -148,10 +148,12 @@ public class PlayerController : MonoBehaviour
         {
             controller.Move(knockVel * Time.deltaTime);
             knockVel *= 0.9f;
+            
 
             if( knockVel.x < 0.25 &&  knockVel.z < 0.25)
             { 
                 knocked = false;
+                animator.SetBool("Stagger", false);
             }
         }
 
@@ -192,12 +194,12 @@ public class PlayerController : MonoBehaviour
             playerDamaged.Invoke();
             StartCoroutine(BecomeTemporarilyInvincible());
             knocked = true;
+            animator.SetBool("Stagger", true);
             if (spawnOnDamage) Instantiate(spawnOnDamage, transform.position, transform.rotation);
 
         }
         else
         {
-            Debug.Log("I'm Invincible!");
             return;
         }
 
