@@ -15,7 +15,7 @@ public class MenuButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Physics.queriesHitTriggers = true;
     }
 
     // Update is called once per frame
@@ -46,5 +46,11 @@ public class MenuButton : MonoBehaviour
             LoadScenes loadScenes = gameObject.GetComponent<LoadScenes>();
             loadScenes.LoadScene(loadScenes.SceneToLoad);
         }
+    }
+
+    public void MouseHover()
+    {
+        Debug.Log("on mouse over called");
+        menuButtonController.index = thisIndex;
     }
 }
