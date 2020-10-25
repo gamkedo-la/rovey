@@ -318,10 +318,25 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5107014058616555918, guid: f74ab7995f20c5e41b1ce2bb2b621621,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107014058616555918, guid: f74ab7995f20c5e41b1ce2bb2b621621,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5107014058616555919, guid: f74ab7995f20c5e41b1ce2bb2b621621,
         type: 3}
       propertyPath: m_Name
       value: MenuButton (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107014058616555919, guid: f74ab7995f20c5e41b1ce2bb2b621621,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5107014058616555920, guid: f74ab7995f20c5e41b1ce2bb2b621621,
         type: 3}
@@ -671,10 +686,25 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5107014058616555918, guid: f74ab7995f20c5e41b1ce2bb2b621621,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107014058616555918, guid: f74ab7995f20c5e41b1ce2bb2b621621,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5107014058616555919, guid: f74ab7995f20c5e41b1ce2bb2b621621,
         type: 3}
       propertyPath: m_Name
       value: MenuButton (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107014058616555919, guid: f74ab7995f20c5e41b1ce2bb2b621621,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5107014058616555920, guid: f74ab7995f20c5e41b1ce2bb2b621621,
         type: 3}
@@ -758,6 +788,7 @@ GameObject:
   - component: {fileID: 1877427517}
   - component: {fileID: 1877427522}
   - component: {fileID: 1877427521}
+  - component: {fileID: 1877427523}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -962,6 +993,25 @@ MonoBehaviour:
   keyDown: 0
   maxIndex: 3
   audioSource: {fileID: 1877427521}
+--- !u!95 &1877427523
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877427516}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5ee93a98d6d1a594a9b9d3ea9b4f172d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1888260127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,10 +1205,25 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5107014058616555918, guid: f74ab7995f20c5e41b1ce2bb2b621621,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107014058616555918, guid: f74ab7995f20c5e41b1ce2bb2b621621,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5107014058616555919, guid: f74ab7995f20c5e41b1ce2bb2b621621,
         type: 3}
       propertyPath: m_Name
       value: MenuButton (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107014058616555919, guid: f74ab7995f20c5e41b1ce2bb2b621621,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5107014058616555920, guid: f74ab7995f20c5e41b1ce2bb2b621621,
         type: 3}
@@ -1329,6 +1394,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MenuButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107014058616555919, guid: f74ab7995f20c5e41b1ce2bb2b621621,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5107014058616555920, guid: f74ab7995f20c5e41b1ce2bb2b621621,
         type: 3}
