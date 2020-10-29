@@ -60,6 +60,9 @@ public class PlayerController : MonoBehaviour
     public GameObject spawnOnWin;
     public GameObject spawnOnGameover;
 
+    // Steep slopes
+    public float slideFriction = 0.3f;
+    private Vector3 hitNormal;
 
     public Vector3 LastCheckpoint
     {
@@ -115,6 +118,7 @@ public class PlayerController : MonoBehaviour
 
         if (controller.isGrounded)
         {
+            var fallSpeed = velocity.y - (gravity * Time.deltaTime);
             velocity.y = -0.1f;
         }
         else
@@ -155,6 +159,14 @@ public class PlayerController : MonoBehaviour
                 knocked = false;
                 animator.SetBool("Stagger", false);
             }
+        }
+
+        // Check for steep slopes.
+        var isSliding = (Vector3.Angle(Vector3.up, hitNormal) >= controller.slopeLimit);
+        if (isSliding)
+        {
+            velocity.x += (1f - hitNormal.y) * hitNormal.x * (1f - slideFriction);
+            velocity.z += (1f - hitNormal.y) * hitNormal.z * (1f - slideFriction);
         }
 
         // Apply movement to character controller.
@@ -244,6 +256,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
+        hitNormal = hit.normal;
+
         if (hit.gameObject.CompareTag("OutOfBounds"))
         {
             // @TODO some kinda death/falling animation before we reset position
