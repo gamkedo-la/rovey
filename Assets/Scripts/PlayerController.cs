@@ -42,6 +42,8 @@ public class PlayerController : MonoBehaviour
     public bool jetpacking;  // note: was private, made public for debug info
     public int KeyItems = 0;
     public float invincibilityDurationSeconds = 1f;
+    public bool canJetpack = true;
+    public bool queueJump = false;
     private Vector3 lastCheckpoint; // Position to reset the player after death.
 
     // spawn prefabs when things happen!
@@ -63,6 +65,11 @@ public class PlayerController : MonoBehaviour
     // Steep slopes
     public float slideFriction = 0.3f;
     private Vector3 hitNormal;
+
+    //floor trace
+    private RaycastHit hit;
+    private float dist;
+    private Vector3 dir;
 
     public Vector3 LastCheckpoint
     {
@@ -120,17 +127,59 @@ public class PlayerController : MonoBehaviour
         {
             var fallSpeed = velocity.y - (gravity * Time.deltaTime);
             velocity.y = -0.1f;
+
+            if(queueJump)
+            {
+
+                startJump = true;
+                
+            }
+            
         }
         else
         {
             var fallSpeed = velocity.y - (gravity * Time.deltaTime);
             velocity.y = Mathf.Clamp(fallSpeed, terminalVelocity, velocity.y);
+
+            //floor trace
+
+            dist = 5f;
+            dir = new Vector3(0, -1, 0);
+            
+            if (Physics.Raycast(transform.position, dir, dist))
+            {
+                //the ray collided with something
+                
+                //disable jetpack
+                canJetpack = false;
+                animator.SetBool("CanJetpack", false);
+                //queue jump
+                if (Input.GetButtonDown("Jump"))
+                {
+                    queueJump = true;
+                }
+
+            }
+            else
+            {
+                //nothing was below your gameObject within dist.
+                //enable jetpack
+                canJetpack = true;
+                animator.SetBool("CanJetpack", true);
+            }
+
         }
+
+            
+
+        
 
         if (startJump)
         {
             startJump = false;
             velocity.y = jumpStrength;
+            if (queueJump) queueJump = false;
+
         }
 
         if (jetpacking)
@@ -183,11 +232,14 @@ public class PlayerController : MonoBehaviour
 
     public void StartJetpack()
     {
-        jetpacking = true;
-        activeJetpackTimer = StartCoroutine(JetpackTimer());
-        animator.ResetTrigger("StopJetpack");
-        if (spawnOnJetpackStart) Instantiate(spawnOnJetpackStart, transform.position, transform.rotation);
 
+        if (canJetpack)
+        {
+            jetpacking = true;
+            activeJetpackTimer = StartCoroutine(JetpackTimer());
+            animator.ResetTrigger("StopJetpack");
+            if (spawnOnJetpackStart) Instantiate(spawnOnJetpackStart, transform.position, transform.rotation);
+        }
     }
 
     public void StopJetpack()
