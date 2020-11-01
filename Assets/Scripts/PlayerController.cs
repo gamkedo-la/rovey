@@ -2,13 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Security.Cryptography;
-using System.Security.Cryptography.X509Certificates;
-using UnityEditor.Animations;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
 using UnityEngine.Events;
-using UnityEngine.PlayerLoop;
 
 public class PlayerController : MonoBehaviour
 {
