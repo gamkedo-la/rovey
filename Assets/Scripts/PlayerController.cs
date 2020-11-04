@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public float jumpStrength = 1f;
     public float jetpackStrength = 0.1f;
     public float maxJetpackTime = 2.0f;
+    public float currentJetpackTime = 2.0f;
     public float terminalVelocity = -10.0f;
     private Vector3 velocity;
     private float turnSmoothVelocity;
@@ -128,13 +129,15 @@ public class PlayerController : MonoBehaviour
             var fallSpeed = velocity.y - (gravity * Time.deltaTime);
             velocity.y = -0.1f;
 
-            if(queueJump)
+            if (queueJump)
             {
 
-                startJump = true;
-                
+                animator.SetBool("JumpButton", true);
+                animator.SetBool("QueueJump", true);
+
             }
-            
+
+
         }
         else
         {
@@ -153,8 +156,8 @@ public class PlayerController : MonoBehaviour
                 //disable jetpack
                 canJetpack = false;
                 animator.SetBool("CanJetpack", false);
-                //queue jump
-                if (Input.GetButtonDown("Jump"))
+                //check for and queue jump
+                if (Input.GetButtonDown("Jump") )
                 {
                     queueJump = true;
                 }
@@ -170,15 +173,15 @@ public class PlayerController : MonoBehaviour
 
         }
 
-            
-
-        
-
         if (startJump)
         {
             startJump = false;
             velocity.y = jumpStrength;
-            if (queueJump) queueJump = false;
+
+            if (queueJump)
+            {
+                queueJump = false;
+            }
 
         }
 
@@ -186,9 +189,10 @@ public class PlayerController : MonoBehaviour
         {
             velocity.y = jetpackStrength;
 
-            if (!Input.GetButton("Jump"))
-            {
+            if (!Input.GetButton("Jump") )
+            { 
                 StopJetpack();
+                
             }
         }
 
@@ -228,6 +232,12 @@ public class PlayerController : MonoBehaviour
         startJump = true;
         if (spawnOnJump) Instantiate(spawnOnJump, transform.position, transform.rotation);
 
+    }
+
+    public void UnqueueJump()
+    {
+        animator.SetBool("QueueJump", false);
+        animator.SetBool("JumpButton", false);
     }
 
     public void StartJetpack()
