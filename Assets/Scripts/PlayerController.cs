@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     public float jumpStrength = 1f;
     public float jetpackStrength = 0.1f;
     public float maxJetpackTime = 2.0f;
-    public float currentJetpackTime = 2.0f;
+    public float currentJetpackTime = 0f;
     public float terminalVelocity = -10.0f;
     private Vector3 velocity;
     private float turnSmoothVelocity;
@@ -128,6 +128,7 @@ public class PlayerController : MonoBehaviour
         {
             var fallSpeed = velocity.y - (gravity * Time.deltaTime);
             velocity.y = -0.1f;
+            currentJetpackTime = 0f;
 
             if (queueJump)
             {
@@ -188,11 +189,16 @@ public class PlayerController : MonoBehaviour
         if (jetpacking)
         {
             velocity.y = jetpackStrength;
+            currentJetpackTime += Time.deltaTime;
 
             if (!Input.GetButton("Jump") )
             { 
                 StopJetpack();
                 
+            }
+            if(currentJetpackTime > 2)
+            {
+                StopJetpack();
             }
         }
 
@@ -311,7 +317,7 @@ public class PlayerController : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(maxJetpackTime);
+            yield return new WaitForSeconds(2-currentJetpackTime);
             StopJetpack();
         }
     }
