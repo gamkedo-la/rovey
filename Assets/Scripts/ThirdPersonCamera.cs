@@ -14,11 +14,24 @@ public class ThirdPersonCamera : MonoBehaviour
     private string defaultHorizontalAxis;
     private string defaultVerticalAxis;
 
+    [Range(0f, 3f)] public float minCameraZoomRange = 0.5f;
+    [Range(0f, 3f)] public float maxCameraZoomRange = 3f;
+    [Range(0.01f, 1.0f)] public float mouseWheelSensitivity = 0.1f;
+    private float zoomFactor = 0;
+
+    private float[] rigRadii;
+
     void Start()
     {
         freeLook = (CinemachineFreeLook) GetComponentInChildren<CinemachineBrain>().ActiveVirtualCamera;
         defaultHorizontalAxis = freeLook.m_XAxis.m_InputAxisName;
         defaultVerticalAxis = freeLook.m_YAxis.m_InputAxisName;
+        
+        rigRadii = new float[freeLook.m_Orbits.Length];
+        for (var i = 0; i < rigRadii.Length; i++)
+        {
+            rigRadii[i] = freeLook.m_Orbits[i].m_Radius;
+        }
     }
 
     private void LateUpdate()
@@ -35,6 +48,26 @@ public class ThirdPersonCamera : MonoBehaviour
         {
             freeLook.m_XAxis.m_InputAxisName = defaultHorizontalAxis;
             freeLook.m_YAxis.m_InputAxisName = defaultVerticalAxis;
+        }
+        
+        // Adjust camera distance with mouse wheel.
+        var mouseWheelInput = -Input.mouseScrollDelta.y;
+        if (mouseWheelInput > 0 || mouseWheelInput < 0)
+        {
+            var zoomDelta = mouseWheelInput * mouseWheelSensitivity;
+            zoomFactor = Mathf.Clamp(zoomFactor + zoomDelta, minCameraZoomRange, maxCameraZoomRange);
+            AdjustRigRadii();
+        }
+    }
+
+    private void AdjustRigRadii()
+    {
+        for (var i = 0; i < rigRadii.Length; i++)
+        {
+            if (freeLook.m_Orbits.Length > i)
+            {
+                freeLook.m_Orbits[i].m_Radius = rigRadii[i] * zoomFactor;
+            }
         }
     }
 }
