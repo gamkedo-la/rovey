@@ -7,8 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Mtrl_01
+      name: Base
     second: {fileID: 2100000, guid: 6d8c342fff16b6a41b785e9710225a2b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: transparent
+    second: {fileID: 2100000, guid: 8c9a0ba305549234ab6fc2ed3c9642e1, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
