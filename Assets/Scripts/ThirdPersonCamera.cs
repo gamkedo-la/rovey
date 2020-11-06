@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class ThirdPersonCamera : MonoBehaviour
 {
@@ -19,18 +18,19 @@ public class ThirdPersonCamera : MonoBehaviour
     [Range(0.01f, 1.0f)] public float mouseWheelSensitivity = 0.1f;
     private float zoomFactor = 0;
 
-    private float[] rigRadii;
+    private CinemachineFreeLook.Orbit[] rigOrbits;
 
     void Start()
     {
         freeLook = (CinemachineFreeLook) GetComponentInChildren<CinemachineBrain>().ActiveVirtualCamera;
         defaultHorizontalAxis = freeLook.m_XAxis.m_InputAxisName;
         defaultVerticalAxis = freeLook.m_YAxis.m_InputAxisName;
-        
-        rigRadii = new float[freeLook.m_Orbits.Length];
-        for (var i = 0; i < rigRadii.Length; i++)
+
+        rigOrbits = new CinemachineFreeLook.Orbit[freeLook.m_Orbits.Length];
+        for (var i = 0; i < rigOrbits.Length; i++)
         {
-            rigRadii[i] = freeLook.m_Orbits[i].m_Radius;
+            rigOrbits[i].m_Height = freeLook.m_Orbits[i].m_Height;
+            rigOrbits[i].m_Radius = freeLook.m_Orbits[i].m_Radius;
         }
     }
 
@@ -56,17 +56,18 @@ public class ThirdPersonCamera : MonoBehaviour
         {
             var zoomDelta = mouseWheelInput * mouseWheelSensitivity;
             zoomFactor = Mathf.Clamp(zoomFactor + zoomDelta, minCameraZoomRange, maxCameraZoomRange);
-            AdjustRigRadii();
+            AdjustRigOrbits();
         }
     }
 
-    private void AdjustRigRadii()
+    private void AdjustRigOrbits()
     {
-        for (var i = 0; i < rigRadii.Length; i++)
+        for (var i = 0; i < rigOrbits.Length; i++)
         {
             if (freeLook.m_Orbits.Length > i)
             {
-                freeLook.m_Orbits[i].m_Radius = rigRadii[i] * zoomFactor;
+                freeLook.m_Orbits[i].m_Radius = rigOrbits[i].m_Radius * zoomFactor;
+                freeLook.m_Orbits[i].m_Height = rigOrbits[i].m_Height * zoomFactor;
             }
         }
     }
