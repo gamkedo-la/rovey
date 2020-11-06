@@ -725,7 +725,7 @@ PrefabInstance:
         type: 3}
       propertyPath: loadScenes
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1483124507}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f74ab7995f20c5e41b1ce2bb2b621621, type: 3}
 --- !u!224 &1418223774 stripped
@@ -1434,6 +1434,11 @@ PrefabInstance:
       propertyPath: menuButtonController
       value: 
       objectReference: {fileID: 1877427522}
+    - target: {fileID: 5107014058616555923, guid: f74ab7995f20c5e41b1ce2bb2b621621,
+        type: 3}
+      propertyPath: loadScenes
+      value: 
+      objectReference: {fileID: 999458036}
     - target: {fileID: 9062500445974773313, guid: f74ab7995f20c5e41b1ce2bb2b621621,
         type: 3}
       propertyPath: SceneToLoad

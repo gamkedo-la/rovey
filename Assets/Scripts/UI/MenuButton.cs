@@ -53,4 +53,13 @@ public class MenuButton : MonoBehaviour
         Debug.Log("on mouse over called");
         menuButtonController.index = thisIndex;
     }
+
+    public void MouseClick()
+    {
+        if(menuButtonController.index == thisIndex)
+        {
+            animator.SetBool("Pressed", true);
+        }
+    }
+
 }
