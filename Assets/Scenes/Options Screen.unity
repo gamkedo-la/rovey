@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -886,6 +886,11 @@ PrefabInstance:
       propertyPath: menuButtonController
       value: 
       objectReference: {fileID: 1877427522}
+    - target: {fileID: 5107014058616555923, guid: f74ab7995f20c5e41b1ce2bb2b621621,
+        type: 3}
+      propertyPath: loadScenes
+      value: 
+      objectReference: {fileID: 1947848340}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f74ab7995f20c5e41b1ce2bb2b621621, type: 3}
 --- !u!224 &1947848338 stripped
@@ -894,3 +899,22 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1947848337}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1947848339 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5107014058616555919, guid: f74ab7995f20c5e41b1ce2bb2b621621,
+    type: 3}
+  m_PrefabInstance: {fileID: 1947848337}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1947848340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947848339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf74aa5e9a9c9204191fcc63d762d7ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneToLoad: Title Screen
