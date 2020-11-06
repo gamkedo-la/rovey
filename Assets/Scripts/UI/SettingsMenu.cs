@@ -49,7 +49,7 @@ public class SettingsMenu : MonoBehaviour
     public void AdjustVolume(float volume)
     {
         var volumeAdjust = volume == 0 ? -80f : 10 * Mathf.Log10(volume);
-        var adjustedVolume = Mathf.Clamp(volume + volumeAdjust, -80f, 0f); // ensure bad math isn't exploding eardrums.
+        var adjustedVolume = Mathf.Clamp(baseVolume + volumeAdjust, -80f, 0f); // ensure bad math isn't exploding eardrums.
         audioMixer.SetFloat("volume", adjustedVolume);
     }
 
