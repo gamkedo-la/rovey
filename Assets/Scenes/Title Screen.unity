@@ -379,7 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf74aa5e9a9c9204191fcc63d762d7ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneToLoad: Tutorial
+  SceneToLoad: caldera
 --- !u!1 &1104161814
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,7 +725,7 @@ PrefabInstance:
         type: 3}
       propertyPath: loadScenes
       value: 
-      objectReference: {fileID: 1483124507}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f74ab7995f20c5e41b1ce2bb2b621621, type: 3}
 --- !u!224 &1418223774 stripped

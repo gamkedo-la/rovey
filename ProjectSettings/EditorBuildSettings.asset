@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/caldera.unity
     guid: c159eea67f0847a4fa1ae07a62f554b1
+  - enabled: 1
+    path: Assets/Scenes/Options Screen.unity
+    guid: 3dd8e97ddd7d1444f924d3bcc3221875
   m_configObjects: {}
