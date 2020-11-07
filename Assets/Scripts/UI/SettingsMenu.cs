@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -8,7 +9,8 @@ using UnityEngine.UI;
 public class SettingsMenu : MonoBehaviour
 {
     public AudioMixer audioMixer;
-    public Dropdown resolutionDropdown;
+    public Slider audioSlider;
+    public TMP_Dropdown resolutionDropdown;
     public Toggle fullscreenToggle;
 
     private Resolution[] resolutions;
@@ -24,6 +26,8 @@ public class SettingsMenu : MonoBehaviour
 
         // Set correct default value for fullscreen toggle.
         fullscreenToggle.isOn = Screen.fullScreen;
+
+        LoadFromPlayerPrefs();
 
         // Populate resolution dropdown options.
         resolutionDropdown.ClearOptions();
@@ -58,14 +62,33 @@ public class SettingsMenu : MonoBehaviour
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
-        PlayerPrefs.SetFloat("resolution.width", resolution.width);
-        PlayerPrefs.SetFloat("resolution.height", resolution.height);
-        PlayerPrefs.SetFloat("resolution.refreshRate", resolution.refreshRate);
+        PlayerPrefs.SetInt("resolution.width", resolution.width);
+        PlayerPrefs.SetInt("resolution.height", resolution.height);
+        PlayerPrefs.SetInt("resolution.refreshRate", resolution.refreshRate);
     }
 
     public void SetFullscreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
         PlayerPrefs.SetInt("fullscreen", isFullscreen ? 1 : 0);
+    }
+
+    private void LoadFromPlayerPrefs()
+    {
+        // Load player volume settings.
+        var volumeSettings = PlayerPrefs.GetFloat("volume", 1.0f);
+        audioSlider.value = volumeSettings;
+
+        // Load player fullscreen settings.
+        var isFullscreen = PlayerPrefs.GetInt("fullscreen", Screen.fullScreen?1:0) == 1;
+        fullscreenToggle.isOn = isFullscreen;
+        
+        // Load player preferred resolution settings.
+        var resolution = new Resolution();
+        resolution.width = PlayerPrefs.GetInt("resolution.width", Screen.width);
+        resolution.height = PlayerPrefs.GetInt("resolution.height", Screen.height);
+        resolution.refreshRate = PlayerPrefs.GetInt("resolution.refreshRate", Screen.currentResolution.refreshRate);
+        Screen.SetResolution(resolution.width, resolution.height, isFullscreen, resolution.refreshRate);
+        Screen.SetResolution(resolution.width, resolution.height, isFullscreen);
     }
 }
