@@ -149,8 +149,10 @@ MonoBehaviour:
     type: 3}
   spawnOnLand: {fileID: 4280382340148439586, guid: bfc711ebaddcb9042be86080cedfafa3,
     type: 3}
-  spawnOnJetpackStart: {fileID: 0}
-  spawnOnJetpackEnd: {fileID: 0}
+  spawnOnJetpackStart: {fileID: 4194765228403389406, guid: a2fdaaba85eb4cb42b38022ca44ed49c,
+    type: 3}
+  spawnOnJetpackEnd: {fileID: 547659893628106322, guid: eaf6ec20afc2bbc45b129baf91dbabe9,
+    type: 3}
   spawnOnFootstep1: {fileID: 0}
   spawnOnFootstep2: {fileID: 0}
   spawnOnDamage: {fileID: 0}
