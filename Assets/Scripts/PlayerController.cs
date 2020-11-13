@@ -12,14 +12,12 @@ public class PlayerController : MonoBehaviour
     public float gravity = 2f;
     public float jumpStrength = 1f;
     public float jetpackStrength = 0.1f;
-    public float maxJetpackTime = 2.0f;
-    public float currentJetpackTime = 0f;
     public float terminalVelocity = -10.0f;
     private Vector3 velocity;
     private float turnSmoothVelocity;
     public float turnSmoothTime = 0.1f;
     private Vector3 knockVel = Vector3.zero;
-
+    public PlayerStats playerStats;
 
     [Header("References and Events")]
     public Transform cam;
@@ -27,7 +25,6 @@ public class PlayerController : MonoBehaviour
     public UnityEvent playerDamaged; // pubsub event for player taking damage.
     private CharacterController controller;
     private Coroutine activeJetpackTimer;
-
 
     // FSM Variables
     [Header("Game State")]
@@ -123,7 +120,7 @@ public class PlayerController : MonoBehaviour
         {
             var fallSpeed = velocity.y - (gravity * Time.deltaTime);
             velocity.y = -0.1f;
-            currentJetpackTime = 0f;
+            playerStats.stamina = playerStats.maxStamina;
 
             if (queueJump)
             {
@@ -184,14 +181,14 @@ public class PlayerController : MonoBehaviour
         if (jetpacking)
         {
             velocity.y = jetpackStrength;
-            currentJetpackTime += Time.deltaTime;
+            playerStats.stamina -= Time.deltaTime;
 
             if (!Input.GetButton("Jump") )
             { 
                 StopJetpack();
                 
             }
-            if(currentJetpackTime > 2)
+            if (playerStats.stamina <= 0f)
             {
                 StopJetpack();
             }
@@ -313,7 +310,7 @@ public class PlayerController : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(2-currentJetpackTime);
+            yield return new WaitForSeconds(playerStats.stamina);
             StopJetpack();
         }
     }
