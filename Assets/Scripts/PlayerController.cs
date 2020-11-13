@@ -246,8 +246,7 @@ public class PlayerController : MonoBehaviour
             jetpacking = true;
             activeJetpackTimer = StartCoroutine(JetpackTimer());
             animator.ResetTrigger("StopJetpack");
-            if (spawnOnJetpackStart) Instantiate(spawnOnJetpackStart, transform.position, transform.rotation);
-                spawnOnJetpackStart.transform.parent = (controller.transform);
+            if (spawnOnJetpackStart) Instantiate(spawnOnJetpackStart, transform.position, transform.rotation, controller.transform);
         }
     }
 
