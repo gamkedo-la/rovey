@@ -9,11 +9,6 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Mtrl_01
     second: {fileID: 2100000, guid: 10dde96ef05270b4ca421cae834ce7df, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: transparent_areas
-    second: {fileID: 2100000, guid: aea7196c2f203b842a86f01007ef1b3f, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
