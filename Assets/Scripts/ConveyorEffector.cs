@@ -16,12 +16,14 @@ public class ConveyorEffector : MonoBehaviour
     {
         // Find the right material in the list and store a reference.
         List<Material> materials = new List<Material>();
-        conveyorBeltMesh.GetMaterials(materials);
-        foreach (var material in materials)
-        {
-            if (material.name.Contains("conveyor_belt"))
+        if (conveyorBeltMesh) {
+            conveyorBeltMesh.GetMaterials(materials);
+            foreach (var material in materials)
             {
-                conveyorMaterial = material;
+                if (material.name.Contains("conveyor_belt"))
+                {
+                    conveyorMaterial = material;
+                }
             }
         }
     }
@@ -30,7 +32,7 @@ public class ConveyorEffector : MonoBehaviour
     {
         // Change material offset to animate the conveyor belt
         currentMaterialOffset.y += effectDirection.z * materialOffsetFraction * Time.deltaTime;
-        conveyorMaterial.mainTextureOffset = currentMaterialOffset;
+        if (conveyorMaterial) conveyorMaterial.mainTextureOffset = currentMaterialOffset;
     }
 
     private void OnTriggerStay(Collider other)
