@@ -3,6 +3,13 @@ using UnityEngine.UI;
 using System.Collections;
 using TMPro;
 
+/// <summary>
+/// Typewriter effect for UI Text component.
+///
+/// Originally from Time Cannon, authored by @mcfunkypants
+/// Modified to use TMP component rather than vanilla text component.
+/// </summary>
+
 public class GUI_Typewriter : MonoBehaviour {
 
     // public Text animateText;
