@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using TMPro;
+using UnityEngine.Events;
 
 /// <summary>
 /// Typewriter effect for UI Text component.
@@ -16,7 +17,12 @@ public class GUI_Typewriter : MonoBehaviour {
     public TextMeshProUGUI animateText;
     public float holdTime = 4.0f;
     public float fadeTime = 2.0f;
-    private float age = 0.0f;
+
+    public UnityEvent typewriterComplete;
+    public bool skipped = false;
+    public bool eventInvoked = false;
+
+    public float age = 0.0f;
     private string fullText;
    
     public void Start() {
@@ -26,15 +32,31 @@ public class GUI_Typewriter : MonoBehaviour {
 
     public void Update()
     {
+        // Use bool to invoke the event only once.
+        if (age > holdTime && !eventInvoked)
+        {
+            typewriterComplete.Invoke();
+            eventInvoked = true;
+        }
+
+        // Typewriter & fade effect have completed.
         if (age>holdTime+fadeTime) {
-            // Debug.Log("Typewriter complete!");
+            typewriterComplete.Invoke();
             gameObject.active = false; // go away forever
             return;
+        }
+
+        // Skip to end of typewriter effect.
+        if (skipped && age <= holdTime)
+        {
+            age = holdTime;
+            animateText.text = fullText;
         }
         
         age +=  Time.deltaTime;
         float percent = 1.0f;
 
+        // Type in text over holdTime duration.
         if (age<holdTime) {
             percent = age/holdTime;
             if (percent<0) percent = 0;
@@ -47,6 +69,7 @@ public class GUI_Typewriter : MonoBehaviour {
 
         }
 
+        // Fade out full text.
         if (age>holdTime) {
             
             percent = (age-holdTime)/fadeTime;
