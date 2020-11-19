@@ -32,6 +32,11 @@ public class GUI_Typewriter : MonoBehaviour {
 
     public void Update()
     {
+        if (Input.GetButtonDown("Submit"))
+        {
+            skipped = true;
+        }
+        
         // Use bool to invoke the event only once.
         if (age > holdTime && !eventInvoked)
         {
