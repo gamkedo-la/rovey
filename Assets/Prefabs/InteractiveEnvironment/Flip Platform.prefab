@@ -106,5 +106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c973b0cac356eb44f92b59ad38452925, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flipWait: 2
+  percPhaseShift: 0.5
+  flipWait: 3
   flipSpeed: 100
