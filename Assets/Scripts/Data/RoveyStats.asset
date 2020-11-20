@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba3676cea0f301f4d9807276d18570d7, type: 3}
   m_Name: RoveyStats
   m_EditorClassIdentifier: 
-  maxStamina: 2
-  stamina: 2
+  maxStamina: 1
+  stamina: 1
+  jetpackStrength: 0.25

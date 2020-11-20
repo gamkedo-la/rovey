@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
     public float speed = 6f;
     public float gravity = 2f;
     public float jumpStrength = 1f;
-    public float jetpackStrength = 0.1f;
     public float terminalVelocity = -10.0f;
     private Vector3 velocity;
     private float turnSmoothVelocity;
@@ -180,7 +179,7 @@ public class PlayerController : MonoBehaviour
 
         if (jetpacking)
         {
-            velocity.y = jetpackStrength;
+            velocity.y = playerStats.jetpackStrength;
             playerStats.stamina -= Time.deltaTime;
 
             if (!Input.GetButton("Jump") )
