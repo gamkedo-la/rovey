@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     public bool canJetpack = true;
     public bool queueJump = false;
     private Vector3 lastCheckpoint; // Position to reset the player after death.
+    public FlashStatusText statusText;
 
     // spawn prefabs when things happen!
     [Header("Prefabs To Spawn When Stuff Happens")]
@@ -322,22 +323,18 @@ public class PlayerController : MonoBehaviour
             // @TODO some kinda death/falling animation before we reset position
             ResetPosition(lastCheckpoint);
         }
-        else if (hit.gameObject.CompareTag("Checkpoint"))
-        {
-            lastCheckpoint = hit.transform.position;
-            Debug.Log("checkpoint updated");
-            if (spawnOnCheckpoint) Instantiate(spawnOnCheckpoint, transform.position, transform.rotation);
-
-        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Checkpoint"))
         {
-            lastCheckpoint = other.transform.position;
-            Debug.Log("checkpoint updated");
-            if (spawnOnCheckpoint) Instantiate(spawnOnCheckpoint, transform.position, transform.rotation);
+            if (lastCheckpoint != other.transform.position)
+            {
+                lastCheckpoint = other.transform.position;
+                statusText.ShowMessage("checkpoint reached");
+                if (spawnOnCheckpoint) Instantiate(spawnOnCheckpoint, transform.position, transform.rotation);
+            }
         }
         else if (other.gameObject.CompareTag("KeyItem"))
         {

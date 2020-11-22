@@ -745,6 +745,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 5.5263
       objectReference: {fileID: 0}
+    - target: {fileID: 7744623784701631214, guid: 4b86c628e987d284f88f9f976d989f8b,
+        type: 3}
+      propertyPath: statusText
+      value: 
+      objectReference: {fileID: 1153383193}
     - target: {fileID: 9186266102431060713, guid: 4b86c628e987d284f88f9f976d989f8b,
         type: 3}
       propertyPath: m_Name
@@ -1825,6 +1830,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 5.5263
       objectReference: {fileID: 0}
+    - target: {fileID: 7744623784701631214, guid: 4b86c628e987d284f88f9f976d989f8b,
+        type: 3}
+      propertyPath: statusText
+      value: 
+      objectReference: {fileID: 1153383193}
     - target: {fileID: 9186266102431060713, guid: 4b86c628e987d284f88f9f976d989f8b,
         type: 3}
       propertyPath: m_Name
@@ -5033,6 +5043,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 71.46875
       objectReference: {fileID: 0}
+    - target: {fileID: 7744623784701631214, guid: 4b86c628e987d284f88f9f976d989f8b,
+        type: 3}
+      propertyPath: statusText
+      value: 
+      objectReference: {fileID: 1153383193}
     - target: {fileID: 9186266102431060713, guid: 4b86c628e987d284f88f9f976d989f8b,
         type: 3}
       propertyPath: m_Name
@@ -8799,6 +8814,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 5.5263
       objectReference: {fileID: 0}
+    - target: {fileID: 7744623784701631214, guid: 4b86c628e987d284f88f9f976d989f8b,
+        type: 3}
+      propertyPath: statusText
+      value: 
+      objectReference: {fileID: 1153383193}
     - target: {fileID: 9186266102431060713, guid: 4b86c628e987d284f88f9f976d989f8b,
         type: 3}
       propertyPath: m_Name
@@ -11436,6 +11456,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 145.2
       objectReference: {fileID: 0}
+    - target: {fileID: 5203742015165408184, guid: 90a2d398adacfa0488333f3888cb5f08,
+        type: 3}
+      propertyPath: statusText
+      value: 
+      objectReference: {fileID: 1153383193}
     - target: {fileID: 5348274482944433374, guid: 90a2d398adacfa0488333f3888cb5f08,
         type: 3}
       propertyPath: m_AvoidObstacles
@@ -12054,6 +12079,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6179396441516861248, guid: fa088e96347eec144802b1c4a931e526,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6179396441516861249, guid: fa088e96347eec144802b1c4a931e526,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12221,6 +12251,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa088e96347eec144802b1c4a931e526, type: 3}
+--- !u!114 &1153383193 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6175811782964624767, guid: fa088e96347eec144802b1c4a931e526,
+    type: 3}
+  m_PrefabInstance: {fileID: 1153383192}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95e2873adee32e746b67176537eafbc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1162320086
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16462,6 +16504,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 77.01536
       objectReference: {fileID: 0}
+    - target: {fileID: 7744623784701631214, guid: 4b86c628e987d284f88f9f976d989f8b,
+        type: 3}
+      propertyPath: statusText
+      value: 
+      objectReference: {fileID: 1153383193}
     - target: {fileID: 9186266102431060713, guid: 4b86c628e987d284f88f9f976d989f8b,
         type: 3}
       propertyPath: m_Name
@@ -21359,6 +21406,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.033299
       objectReference: {fileID: 0}
+    - target: {fileID: 7744623784701631214, guid: 4b86c628e987d284f88f9f976d989f8b,
+        type: 3}
+      propertyPath: statusText
+      value: 
+      objectReference: {fileID: 1153383193}
     - target: {fileID: 9186266102431060713, guid: 4b86c628e987d284f88f9f976d989f8b,
         type: 3}
       propertyPath: m_Name
