@@ -10,7 +10,7 @@ using UnityEngine;
 public class funkyBlackLight : MonoBehaviour
 {
     void Start() {
-       Debug.Log("Turning a regular light into a BLACK LIGHT!");
+       Debug.Log("Turning on a BLACK LIGHT (Rovey's drop shadow)");
        Light light = GetComponent<Light>();
        light.color = new Color(-1,-1,-1,1);
        light.intensity = 50;
