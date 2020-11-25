@@ -12400,6 +12400,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 0.9989102
       objectReference: {fileID: 0}
+    - target: {fileID: 1180809241467456962, guid: 90a2d398adacfa0488333f3888cb5f08,
+        type: 3}
+      propertyPath: stepVolume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1237360335119636311, guid: 90a2d398adacfa0488333f3888cb5f08,
         type: 3}
       propertyPath: m_LocalRotation.y
