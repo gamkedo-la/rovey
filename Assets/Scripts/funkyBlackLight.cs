@@ -13,6 +13,6 @@ public class funkyBlackLight : MonoBehaviour
        Debug.Log("Turning on a BLACK LIGHT (Rovey's drop shadow)");
        Light light = GetComponent<Light>();
        light.color = new Color(-1,-1,-1,1);
-       light.intensity = 50;
+       //light.intensity = 50;
     }
 }
