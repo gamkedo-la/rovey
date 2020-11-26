@@ -2293,12 +2293,12 @@ PrefabInstance:
     - target: {fileID: 3079396597586046332, guid: 90a2d398adacfa0488333f3888cb5f08,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8
+      value: -3.163307
       objectReference: {fileID: 0}
     - target: {fileID: 3079396597586046332, guid: 90a2d398adacfa0488333f3888cb5f08,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -20
+      value: 1.7632972
       objectReference: {fileID: 0}
     - target: {fileID: 4436953475356607639, guid: 90a2d398adacfa0488333f3888cb5f08,
         type: 3}
@@ -14152,6 +14152,7 @@ GameObject:
   - component: {fileID: 1638878757}
   - component: {fileID: 1638878756}
   - component: {fileID: 1638878758}
+  - component: {fileID: 1638878759}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -14174,7 +14175,7 @@ MonoBehaviour:
   musicAudioSourcePrefab: {fileID: 3474916888593357456, guid: f701b75aeda739245be2279bacadc137,
     type: 3}
   playMusicOnStart: 1
-  activePool: {fileID: 11400000, guid: 28674b079513a7d45bea4bb1f5732187, type: 2}
+  activePool: {fileID: 0}
 --- !u!4 &1638878757
 Transform:
   m_ObjectHideFlags: 0
@@ -14203,6 +14204,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSourcePrefab: {fileID: 3474916888593357456, guid: 6b27a554c7899c64f93a2560946d4fdf,
     type: 3}
+--- !u!114 &1638878759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638878755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5129d20bec1bcee48be9bdb1bc2cbb1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hardOutOnSceneEnter: 1
+  hardOutOnSceneExit: 0
+  pool: {fileID: 11400000, guid: 28674b079513a7d45bea4bb1f5732187, type: 2}
+  tracks: []
 --- !u!1001 &1712348821
 PrefabInstance:
   m_ObjectHideFlags: 0

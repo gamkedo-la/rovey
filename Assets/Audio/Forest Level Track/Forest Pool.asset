@@ -10,7 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e01e701f55dc83429b3efc55cbd1ea8, type: 3}
-  m_Name: Demo Zone2
+  m_Name: Forest Pool
   m_EditorClassIdentifier: 
-  musicStems:
-  - {fileID: 11400000, guid: 481694fd18d970d4190126a8c160fe44, type: 2}
+  musicStems: []

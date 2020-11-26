@@ -10,8 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e01e701f55dc83429b3efc55cbd1ea8, type: 3}
-  m_Name: Demo Zone1
+  m_Name: Swamp Pool
   m_EditorClassIdentifier: 
   musicStems:
-  - {fileID: 11400000, guid: a7de52e939d03e94faadcdb6ae34a878, type: 2}
-  - {fileID: 11400000, guid: 229f6e8a028477e4592a6d0b338796f8, type: 2}
+  - {fileID: 11400000, guid: a2be0b9fd338e9545aacbadbe3d0a97c, type: 2}

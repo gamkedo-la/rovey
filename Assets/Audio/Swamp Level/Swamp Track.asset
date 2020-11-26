@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9458b71d8727d94b84ea46c1d119d4b, type: 3}
-  m_Name: Demo Z3 Track1
+  m_Name: Swamp Track
   m_EditorClassIdentifier: 
-  musicStem: {fileID: 8300000, guid: 3e2a1979adb382745833d9eb7eba400a, type: 3}
-  looping: 1
-  bpm: 30
-  endTime: 4
+  musicStem: {fileID: 8300000, guid: 1433802398d8ee14d80bd48638712470, type: 3}
+  looping: 0
+  bpm: 170
+  endTime: 90.35
   outTimes:
-  - 2
+  - 16.94
+  - 39.52
+  - 62.11
   fadeTime: 0.25

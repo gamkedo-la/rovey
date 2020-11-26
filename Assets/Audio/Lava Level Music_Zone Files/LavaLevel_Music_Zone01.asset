@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicStem: {fileID: 8300000, guid: 9d8d175ecfdced1489121604711b20df, type: 3}
   looping: 0
-  bpm: 42.5
+  bpm: 170
   endTime: 90.35
   outTimes:
   - 16.94

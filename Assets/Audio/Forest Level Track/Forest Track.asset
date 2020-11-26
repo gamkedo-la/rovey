@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9458b71d8727d94b84ea46c1d119d4b, type: 3}
-  m_Name: Demo Z1 Track2
+  m_Name: Forest Track
   m_EditorClassIdentifier: 
-  musicStem: {fileID: 8300000, guid: 085bf9c93a5ccd74589452e561e33eaf, type: 3}
-  looping: 1
-  bpm: 30
-  endTime: 8
+  musicStem: {fileID: 8300000, guid: c9da2cce0ce42c941ba5be9b287fe812, type: 3}
+  looping: 0
+  bpm: 170
+  endTime: 90.35
   outTimes:
-  - 4
+  - 16.94
+  - 39.52
+  - 62.11
   fadeTime: 0.25
