@@ -3183,6 +3183,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5107014058616555920, guid: f74ab7995f20c5e41b1ce2bb2b621621,
         type: 3}
+      propertyPath: buttonActions.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107014058616555920, guid: f74ab7995f20c5e41b1ce2bb2b621621,
+        type: 3}
       propertyPath: menuButtonController
       value: 
       objectReference: {fileID: 1877427522}
@@ -3190,6 +3195,36 @@ PrefabInstance:
         type: 3}
       propertyPath: thisIndex
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107014058616555920, guid: f74ab7995f20c5e41b1ce2bb2b621621,
+        type: 3}
+      propertyPath: buttonActions.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107014058616555920, guid: f74ab7995f20c5e41b1ce2bb2b621621,
+        type: 3}
+      propertyPath: buttonActions.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107014058616555920, guid: f74ab7995f20c5e41b1ce2bb2b621621,
+        type: 3}
+      propertyPath: buttonActions.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1947848341}
+    - target: {fileID: 5107014058616555920, guid: f74ab7995f20c5e41b1ce2bb2b621621,
+        type: 3}
+      propertyPath: buttonActions.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107014058616555920, guid: f74ab7995f20c5e41b1ce2bb2b621621,
+        type: 3}
+      propertyPath: buttonActions.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107014058616555920, guid: f74ab7995f20c5e41b1ce2bb2b621621,
+        type: 3}
+      propertyPath: buttonActions.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Title Screen
       objectReference: {fileID: 0}
     - target: {fileID: 5107014058616555923, guid: f74ab7995f20c5e41b1ce2bb2b621621,
         type: 3}
@@ -3227,7 +3262,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf74aa5e9a9c9204191fcc63d762d7ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneToLoad: Title Screen
+--- !u!114 &1947848341 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4625660552588071188, guid: f74ab7995f20c5e41b1ce2bb2b621621,
+    type: 3}
+  m_PrefabInstance: {fileID: 1947848337}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947848339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf74aa5e9a9c9204191fcc63d762d7ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2011949323
 GameObject:
   m_ObjectHideFlags: 0

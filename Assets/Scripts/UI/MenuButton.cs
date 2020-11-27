@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MenuButton : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class MenuButton : MonoBehaviour
     [SerializeField] AnimatorFunctions animatorFunctions;
     [SerializeField] int thisIndex;
 
+    public UnityEvent buttonActions;
+    public bool usingMouse = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +25,9 @@ public class MenuButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckInputMethod();
+        if (usingMouse) return;
+
         if (menuButtonController.index == thisIndex)
         {
             animator.SetBool("Selected", true);
@@ -41,24 +48,34 @@ public class MenuButton : MonoBehaviour
 
     public void ButtonFunction()
     {
-        if (gameObject.GetComponent<LoadScenes>())
-        {
-            LoadScenes loadScenes = gameObject.GetComponent<LoadScenes>();
-            loadScenes.LoadScene(loadScenes.SceneToLoad);
-        }
+        buttonActions.Invoke();
     }
 
     public void MouseHover()
     {
-        Debug.Log("on mouse over called");
+        usingMouse = true;
         menuButtonController.index = thisIndex;
+        animator.SetBool("Selected", true);
+    }
+
+    public void MouseExit()
+    {
+        usingMouse = true;
+        animator.SetBool("Selected", false);
     }
 
     public void MouseClick()
     {
-        if(menuButtonController.index == thisIndex)
+        usingMouse = true;
+        animator.SetBool("Pressed", true);
+    }
+
+    private void CheckInputMethod()
+    {
+        var vertical = Input.GetAxis("Vertical");
+        if (vertical > 0)
         {
-            animator.SetBool("Pressed", true);
+            usingMouse = false;
         }
     }
 
