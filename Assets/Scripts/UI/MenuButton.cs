@@ -16,8 +16,14 @@ public class MenuButton : MonoBehaviour
     public UnityEvent buttonActions;
     public bool usingMouse = false;
 
-    // Start is called before the first frame update
-    void Start()
+	[Header("Audio")]
+	[SerializeField] private AudioClip hoverSound;
+	[SerializeField] private AudioClip selectSound;
+	[SerializeField] private AudioClip exitSound;
+	private AudioSource currentHoverSound;
+
+	// Start is called before the first frame update
+	void Start()
     {
         Physics.queriesHitTriggers = true;
     }
@@ -56,19 +62,24 @@ public class MenuButton : MonoBehaviour
         usingMouse = true;
         menuButtonController.index = thisIndex;
         animator.SetBool("Selected", true);
+		currentHoverSound = AudioManager.Instance.PlaySoundSFX(hoverSound, gameObject, Random.Range(0.8f, 1f), Random.Range(0.9f, 1.1f), 0f);
     }
 
     public void MouseExit()
     {
         usingMouse = true;
         animator.SetBool("Selected", false);
-    }
+		AudioManager.Instance.PlaySoundSFX(exitSound, gameObject, Random.Range(0.8f, 1f), Random.Range(0.9f, 1.1f), 0f);
+		currentHoverSound.Stop();
+	}
 
     public void MouseClick()
     {
         usingMouse = true;
         animator.SetBool("Pressed", true);
-    }
+		AudioManager.Instance.PlaySoundSFX(selectSound, gameObject, Random.Range(0.8f, 1f), Random.Range(0.9f, 1.1f), 0f);
+		currentHoverSound.Stop();
+	}
 
     private void CheckInputMethod()
     {

@@ -5253,6 +5253,7 @@ MonoBehaviour:
   skipped: 0
   eventInvoked: 0
   age: 0
+  typeSound: {fileID: 8300000, guid: 2086402507f6b0640a2466a1fe750d4f, type: 3}
 --- !u!114 &1142147271
 MonoBehaviour:
   m_ObjectHideFlags: 0

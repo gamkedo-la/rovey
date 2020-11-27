@@ -215,6 +215,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   usingMouse: 0
+  hoverSound: {fileID: 8300000, guid: 7068c3741c87e4c49a9e0d419d76af63, type: 3}
+  selectSound: {fileID: 8300000, guid: 33acea578dd1b8f45a0888c52e105224, type: 3}
+  exitSound: {fileID: 8300000, guid: 9feedb0e8d3af884988a34518c4f22ba, type: 3}
 --- !u!95 &5107014058616555921
 Animator:
   serializedVersion: 3

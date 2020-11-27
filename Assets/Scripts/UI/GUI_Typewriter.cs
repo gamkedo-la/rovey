@@ -24,8 +24,13 @@ public class GUI_Typewriter : MonoBehaviour {
 
     public float age = 0.0f;
     private string fullText;
-   
-    public void Start() {
+
+	[Header("Audio")]
+	[SerializeField] private AudioClip typeSound;
+
+	private int oldLen = 0;
+
+	public void Start() {
         fullText = animateText.text;
         // Debug.Log("TYPEWRITER will type out: "+fullText);
     }
@@ -72,7 +77,13 @@ public class GUI_Typewriter : MonoBehaviour {
             // Debug.Log("TYPEWRITER"+len+": "+temp);
             animateText.text = temp;
 
-        }
+			if (oldLen < len - 1)
+			{
+				AudioManager.Instance.PlaySoundSFX(typeSound, gameObject, Random.Range(0.6f, 0.8f), Random.Range(0.95f, 1f), 0f);
+				oldLen = len;
+			}
+
+		}
 
         // Fade out full text.
         if (age>holdTime) {
