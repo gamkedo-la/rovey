@@ -23629,6 +23629,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform Island
       objectReference: {fileID: 0}
+    - target: {fileID: 1419666973319744851, guid: ee555f722efdb284ca1248de7516b1ef,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: aea7196c2f203b842a86f01007ef1b3f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee555f722efdb284ca1248de7516b1ef, type: 3}
 --- !u!1001 &1380021390489170559
