@@ -141,8 +141,10 @@ public class PlayerController : MonoBehaviour
 
             dist = 5f;
             dir = new Vector3(0, -1, 0);
-            
-            if (Physics.Raycast(transform.position, dir, dist))
+
+            var layerMask = LayerMask.NameToLayer("Ignore Raycast");
+            RaycastHit hitInfo;
+            if (Physics.Raycast(transform.position, dir, out hitInfo, dist, layerMask))
             {
                 //the ray collided with something
                 
