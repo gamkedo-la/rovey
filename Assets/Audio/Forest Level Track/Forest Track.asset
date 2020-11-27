@@ -15,9 +15,13 @@ MonoBehaviour:
   musicStem: {fileID: 8300000, guid: c9da2cce0ce42c941ba5be9b287fe812, type: 3}
   looping: 0
   bpm: 170
-  endTime: 90.35
+  endTime: 93.175
   outTimes:
+  - 8.47
   - 16.94
+  - 28.23
   - 39.52
+  - 50.82
   - 62.11
+  - 76.23
   fadeTime: 0.25

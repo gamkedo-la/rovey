@@ -17,7 +17,11 @@ MonoBehaviour:
   bpm: 170
   endTime: 90.35
   outTimes:
+  - 8.47
   - 16.94
+  - 28.23
   - 39.52
+  - 50.82
   - 62.11
+  - 76.23
   fadeTime: 0.25

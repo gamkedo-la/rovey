@@ -55,7 +55,7 @@ public class MusicManager : MonoBehaviour {
 
 		if (Time.time >= nextEndTime) {
 			if (activeTrack.looping) {
-				Debug.Log("Looping");
+				//Debug.Log("Looping");
 				MusicTrack newTrack = ReturnNewTrack();
 				if (newTrack == activeTrack) {
 					SetNextEndTime();
@@ -65,7 +65,7 @@ public class MusicManager : MonoBehaviour {
 				}
 			} else
 			{
-				Debug.Log("!Looping");
+				//Debug.Log("!Looping");
 				float destroyTime = activeSource.clip.length - activeSource.time + Time.deltaTime;
 				Destroy(activeSource.gameObject, destroyTime);
 				PlayNewTrack();
@@ -113,20 +113,31 @@ public class MusicManager : MonoBehaviour {
 
 	public void PushMusicPool(MusicPool newPool) {
 		musicStack.Push(newPool);
-		activePool = musicStack.Peek();
-		cueNewPool = true;
+		if (activePool != musicStack.Peek())
+		{
+			activePool = musicStack.Peek();
+			cueNewPool = true;
+
+		}
 	}
 
 	public void PopMusicPool() {
 		if (musicStack.Count > 1) {
 			musicStack.Pop();
-			activePool = musicStack.Peek();
-			cueNewPool = true;
+			if (activePool != musicStack.Peek())
+			{
+				activePool = musicStack.Peek();
+				cueNewPool = true;
+
+			}
 		}
 	}
 
 	public void TransitionMusicNow() {
-		hardOut = true;
+		if (activePool != musicStack.Peek())
+		{
+			hardOut = true;
+		}
 	}
 
 	private void PlayNewTrack(MusicTrack newTrack) {

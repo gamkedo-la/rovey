@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e01e701f55dc83429b3efc55cbd1ea8, type: 3}
   m_Name: Forest Pool
   m_EditorClassIdentifier: 
-  musicStems: []
+  musicStems:
+  - {fileID: 11400000, guid: 0563d67ccfdcdce4096fb369705fb8a0, type: 2}
