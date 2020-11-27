@@ -40,6 +40,7 @@ public class ConveyorEffector : MonoBehaviour
         // For player, use character controller to move; otherwise, just use transform.position.
         if (other.CompareTag("Player"))
         {
+            Debug.Log("conveyor is pushing the player!");
             other.GetComponent<CharacterController>().Move(effectDirection * Time.fixedDeltaTime);
         }
         else
