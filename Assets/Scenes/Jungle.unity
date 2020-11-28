@@ -23929,6 +23929,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4481293833002520200, guid: c120af4b65fb1b845975bb634ab09bfb,
+        type: 3}
+      propertyPath: nextLevel
+      value: Bouncy Castle Level
+      objectReference: {fileID: 0}
     - target: {fileID: 8371398937579829548, guid: c120af4b65fb1b845975bb634ab09bfb,
         type: 3}
       propertyPath: m_LocalPosition.x

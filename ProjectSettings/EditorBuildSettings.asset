@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Options Screen.unity
     guid: 3dd8e97ddd7d1444f924d3bcc3221875
+  - enabled: 1
+    path: Assets/Scenes/McFunkypants/Bouncy Castle Level.unity
+    guid: e5af0f8b58878fc4b86bfe2130396803
   m_configObjects: {}
