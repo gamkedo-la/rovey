@@ -15,11 +15,13 @@ public class PlayVideoInWebGL : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (string.IsNullOrEmpty(url))
+       /* if (string.IsNullOrEmpty(url))
         {
             url = System.IO.Path.Combine(Application.streamingAssetsPath, videoFileName);
-        }
-        videoPlayer.url = url;
+        }*/
+        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, videoFileName);
+        Debug.Log(videoPlayer.url);
+        videoPlayer.Play();
     }
 
 

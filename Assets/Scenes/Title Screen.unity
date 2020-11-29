@@ -1131,6 +1131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 950490429}
   - component: {fileID: 950490428}
+  - component: {fileID: 950490430}
   m_Layer: 0
   m_Name: Video
   m_TagString: Untagged
@@ -1156,7 +1157,7 @@ VideoPlayer:
   m_TargetMaterialProperty: _MainTex
   m_RenderMode: 2
   m_AspectRatio: 2
-  m_DataSource: 0
+  m_DataSource: 1
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
   m_TargetAudioSources:
@@ -1167,7 +1168,7 @@ VideoPlayer:
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 01
   m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_SkipOnDrop: 1
   m_Looping: 1
   m_WaitForFirstFrame: 1
@@ -1186,6 +1187,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &950490430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950490427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc2b9a64cb67114483d2a325bef031c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoPlayer: {fileID: 950490428}
+  videoFileName: TitleScreenVid.mp4
 --- !u!1 &999458035 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5107014058616555919, guid: f74ab7995f20c5e41b1ce2bb2b621621,
