@@ -9,15 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9458b71d8727d94b84ea46c1d119d4b, type: 3}
-  m_Name: LavaLevel_Music_Zone01
+  m_Script: {fileID: 11500000, guid: 8e01e701f55dc83429b3efc55cbd1ea8, type: 3}
+  m_Name: TitlePool
   m_EditorClassIdentifier: 
-  musicStem: {fileID: 8300000, guid: 46bc4a69ffd1f8f43af184022caeaccd, type: 3}
-  looping: 0
-  bpm: 170
-  endTime: 22.58
-  outTimes:
-  - 8.47
-  - 16.94
-  - 28.23
-  fadeTime: 0.25
+  musicStems:
+  - {fileID: 11400000, guid: f5286b036d9f3684d9706d1866992e70, type: 2}
