@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 6045258957117809494}
   - component: {fileID: 1180809241467456962}
   - component: {fileID: 4216330769602697948}
+  - component: {fileID: 7260538264016538602}
   m_Layer: 0
   m_Name: Rovey
   m_TagString: Player
@@ -126,7 +127,6 @@ MonoBehaviour:
   speed: 30
   gravity: 1.5
   jumpStrength: 0.6
-  jetpackStrength: 0.1
   terminalVelocity: -3
   turnSmoothTime: 0.1
   playerStats: {fileID: 11400000, guid: b893ff86cfaff2843baaf1e39d2c814b, type: 2}
@@ -144,6 +144,7 @@ MonoBehaviour:
   invincibilityDurationSeconds: 1
   canJetpack: 1
   queueJump: 0
+  statusText: {fileID: 0}
   spawnOnJump: {fileID: 3324281305326135085, guid: 01e557fc1d4c77f44bb0bf5363160232,
     type: 3}
   spawnOnLand: {fileID: 4280382340148439586, guid: bfc711ebaddcb9042be86080cedfafa3,
@@ -199,11 +200,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4d4b8c76fa8ee77409e39d847823fe85, type: 3}
   - {fileID: 8300000, guid: 8fcca5b5a5c462a47b1019560a6da184, type: 3}
   - {fileID: 8300000, guid: a17766d3ac5a3ba49800f746bb5696fe, type: 3}
+  jumpVolume: 1
   land:
   - {fileID: 8300000, guid: 89533c818ced2fb4db792a4d28e0658f, type: 3}
   - {fileID: 8300000, guid: 10230cd689e4da949b940f4fd1b16a54, type: 3}
   - {fileID: 8300000, guid: df735fc413f8ff943b2a752549cef292, type: 3}
   - {fileID: 8300000, guid: f7d075ae82bdb344b9d9b5698e9bc94e, type: 3}
+  landVolume: 0.5
   step:
   - {fileID: 8300000, guid: c9da1413343385749b9200c0e0fe06e9, type: 3}
   - {fileID: 8300000, guid: 02b6a24c363732b4d9493ae5a7c33efb, type: 3}
@@ -215,6 +218,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8e01f81d97bce2747bb159b9a2034528, type: 3}
   - {fileID: 8300000, guid: 447de27ca64ed844b89737fb5faf3c45, type: 3}
   - {fileID: 8300000, guid: eb697636c2f11d849bd85011040b3d5b, type: 3}
+  stepVolume: 0.5
   jetpack: {fileID: 8300000, guid: b93810b512bc1f4468d7b6a1b593f11e, type: 3}
 --- !u!136 &4216330769602697948
 CapsuleCollider:
@@ -230,6 +234,18 @@ CapsuleCollider:
   m_Height: 5.2073574
   m_Direction: 1
   m_Center: {x: 0, y: 2.5176554, z: -0.20000005}
+--- !u!114 &7260538264016538602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4436953475356607639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9ce3da3a3f5b7148b131f638fc2eddb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2047384508
 PrefabInstance:
   m_ObjectHideFlags: 0

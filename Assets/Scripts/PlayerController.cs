@@ -345,10 +345,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void ResetPosition(Vector3 targetPosition)
+    public void ResetPosition(Vector3 targetPosition)
     {
         velocity = Vector3.zero;
-        transform.position = targetPosition + (Vector3.up * controller.height/2);
+        controller.Move(targetPosition - transform.position);
     }
 
     private bool PlayerJumped => controller.isGrounded && !animator.GetBool("Jumping") && Input.GetAxisRaw("Jump") >= 0.1f;
