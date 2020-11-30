@@ -601,6 +601,21 @@ PrefabInstance:
       propertyPath: m_Text
       value: Quit to Title Screen
       objectReference: {fileID: 0}
+    - target: {fileID: 5107014057432344148, guid: f74ab7995f20c5e41b1ce2bb2b621621,
+        type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107014057432344148, guid: f74ab7995f20c5e41b1ce2bb2b621621,
+        type: 3}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107014057432344148, guid: f74ab7995f20c5e41b1ce2bb2b621621,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 36
+      objectReference: {fileID: 0}
     - target: {fileID: 5107014058616555918, guid: f74ab7995f20c5e41b1ce2bb2b621621,
         type: 3}
       propertyPath: m_LocalPosition.x
