@@ -41,27 +41,52 @@ public class PlayerAudio : MonoBehaviour
         {
             AudioManager.Instance.PlaySoundSFX(land[Random.Range(0, land.Length)], gameObject, landVolume * Random.Range(0.8f, 1f), Random.Range(0.8f, 1.2f));
         }
-        else
+        else if (errorDetected == false)
         {
             Debug.Log("Audio manager instance not initialized");
+            errorDetected = true;
         }
     }
 
 	void Step()
 	{
-		AudioManager.Instance.PlaySoundSFX(step[Random.Range(0, step.Length)], gameObject, stepVolume*Random.Range(0.4f, 0.5f), Random.Range(0.8f, 1.2f));
-	}
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySoundSFX(step[Random.Range(0, step.Length)], gameObject, stepVolume * Random.Range(0.4f, 0.5f), Random.Range(0.8f, 1.2f));
+        }
+        else if (errorDetected == false)
+        {
+            Debug.Log("Audio manager instance not initialized");
+            errorDetected = true;
+        }
+    }
 
 	void StartJetpack()
 	{
-		jetpackSource = AudioManager.Instance.PlaySoundSFX(jetpack, gameObject, 1f, 1f, 1f, true);
-		jetpackSource.time = Random.Range(0f, jetpackSource.clip.length);
-	}
+        if (AudioManager.Instance != null)
+        {
+            jetpackSource = AudioManager.Instance.PlaySoundSFX(jetpack, gameObject, 1f, 1f, 1f, true);
+            jetpackSource.time = Random.Range(0f, jetpackSource.clip.length);
+        }
+        else if (errorDetected == false)
+        {
+            Debug.Log("Audio manager instance not initialized");
+            errorDetected = true;
+        }
+    }
 
 	void StopJetpack()
 	{
-		AudioManager.Instance.StopSound(jetpackSource, 0.25f);
-	}
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.StopSound(jetpackSource, 0.25f);
+        }
+        else if (errorDetected == false)
+        {
+            Debug.Log("Audio manager instance not initialized");
+            errorDetected = true;
+        }
+    }
 
 
 }
