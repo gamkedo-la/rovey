@@ -15,6 +15,8 @@ public class PlayerAudio : MonoBehaviour
 	private AudioSource jetpackSource;
 	private Animator animator;
 
+    private bool errorDetected = false;
+
 	 void Start()
 	{
 		animator = GetComponent<Animator>();
@@ -22,13 +24,28 @@ public class PlayerAudio : MonoBehaviour
 
 	void StartJump()
 	{
-		AudioManager.Instance.PlaySoundSFX(jump[Random.Range(0, jump.Length)], gameObject, jumpVolume*Random.Range(0.8f, 1f), Random.Range(0.8f, 1.2f));
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySoundSFX(jump[Random.Range(0, jump.Length)], gameObject, jumpVolume * Random.Range(0.8f, 1f), Random.Range(0.8f, 1.2f));
+        }
+        else if(errorDetected == false)
+        {
+            Debug.Log("Audio manager instance not initialized");
+            errorDetected = true;
+        }
 	}
 
 	void OnLanding()
 	{
-		AudioManager.Instance.PlaySoundSFX(land[Random.Range(0, land.Length)], gameObject, landVolume*Random.Range(0.8f, 1f), Random.Range(0.8f, 1.2f));
-	}
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySoundSFX(land[Random.Range(0, land.Length)], gameObject, landVolume * Random.Range(0.8f, 1f), Random.Range(0.8f, 1.2f));
+        }
+        else
+        {
+            Debug.Log("Audio manager instance not initialized");
+        }
+    }
 
 	void Step()
 	{
