@@ -82,11 +82,19 @@ public class PlayerController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
     }
-    
+
+    public void PinballPush(Vector3 direction, float springPower)
+    {
+        velocity = Vector3.zero;
+        knockVel = direction.normalized * springPower;
+    }
+
+
+
     // Update is called once per frame.
     void FixedUpdate()
     {
-        
+    
         var horizontal = Input.GetAxisRaw("Horizontal");
         var forward = Input.GetAxisRaw("Vertical");
         var direction = new Vector3(horizontal, 0f, forward).normalized;
@@ -201,7 +209,7 @@ public class PlayerController : MonoBehaviour
             velocity.y = 0;
         }
 
-        if (knocked = true)
+        if (knocked = true)  //noticed after release 1 equals sign so code is always true but maybe we shouldn't fix this if the game plays fine
         {
             controller.Move(knockVel * Time.deltaTime);
             knockVel *= 0.9f;

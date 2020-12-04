@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class SpringPlatform : MonoBehaviour
 {
+    public float springPower = 120.0f;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collider)
     {
-        Debug.Log(collision.collider.gameObject.name);
+        if(collider.gameObject.tag == "Player")
+        {
+            PlayerController pcScript = collider.GetComponent<PlayerController>();
+            CharacterController ccScript = collider.GetComponent<CharacterController>();
+            Vector3 moveBy = transform.position + transform.up * 1.5f - ccScript.transform.position;
+            ccScript.Move(moveBy);
+            pcScript.PinballPush(transform.up, springPower);
+        }
     }
 
 
